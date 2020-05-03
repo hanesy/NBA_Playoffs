@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<!-- set html language to english -->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>NBA Playoffs Predictions</title>
+
+        <!-- bootstrap stylesheets and jquery imkports and etc -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- for icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <!-- link css sheet  -->
+        <link rel="stylesheet" href="static/style.css">
+
+        <!-- D3 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+        <!-- High Charts -->
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+
+        <!-- Plotly -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+        <!-- Leaflet JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+        <script src="/static/js/jquery-2.1.1.min.js"></script>
+        <style>
+            #map{ height: 800px; width:1000px; margin-left:auto; margin-right:auto; }
+        </style>
+
+    </head>
+
+    <body class="body">
+            
+        <div class="row topBanner">
+            <div class="col-md-4 text-center">
+                <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
+            </div>
+            <div class="col-md-4 text-center">
+                <br>
+                <h1 class=title>Playoffs Predictions</h1></div>
+                <br>
+            <div class="col-md-4 text-center">
+                <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8 chartPadding" style="padding:2%">
+                <h4><b> Introduction </h4></b>
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+                    <p>In doing this, we decided to choose a "modern" subset of Olympic Games, ranging from 1960 to 2016 to align with our economic and demographic data. As there is a larger breadth of competing countries in this range and a better record of population and wealth statistics.</p>
+
+                <h4><b> NBA History </h4></b>
+                    <b><p>Why we chose 1979:</p></b>
+                        <ul>
+                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
+                            </li>
+                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
+                        </ul>
+                    <b><p>Rule changes (timeline)</p></b>
+                        <ul>
+                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
+                            </li>
+                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
+                        </ul>
+                    <b><p>2019 season (when it stopped)</p></b>
+                        <ul>
+                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
+                            </li>
+                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
+                        </ul>
+                <h4><b> Source Data (Scraping)</h4></b>
+                    
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+                <h4><b> Data pre-processing</h4></b>
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+                <h4><b> Different Models used and differences among them</h4></b>
+                    
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Comparison</th>
+                            <th scope="col">Logistic Regression</th>
+                            <th scope="col">Random Forest</th>
+                            <th scope="col">SVM</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Training Score</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Test Score</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Predictions accuracy</th>
+                            <td>80%</td>
+                            <td>80%</td>
+                            <td>80%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                <h4><b> What does the model say about 2019 season data?</h4></b>
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+                <h4><b> What is the “better model”?</h4></b>
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+                    </p>
+                <h4><b> If we would have more time, we would like to:</h4></b>
+                    <ul>
+                        <li>Model by decade/rule changes to see which features are the most important (observe changes in the game)</li>
+                        <li>Models to predict championships from playoff data</li>
+                        <li>East/West differences</li>
+                        <li>Offensive and defensive differences in importance</li>
+                    </ul>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+
+        
+
+
+
+        
+    <footer style = "text-align: center">
+        <p> <b>Contributors: </b> <br>
+        Dagney Cooke <a href="https://www.linkedin.com/in/dagney-cooke-4119b156/" target="_blank">(LinkedIn)</a> <a href="https://github.com/dagneycooke" target="_blank">(GitHub)</a> <br>
+        Shaymus McTeague <a href="https://www.linkedin.com/in/shaymusm/" target="_blank">(LinkedIn)</a> <a href="https://github.com/shaymusmc" target="_blank">(GitHub)</a> <br>
+        Diana Silva <a href="https://www.linkedin.com/in/dianalvesilva/" target="_blank">(LinkedIn)</a> <a href="https://github.com/dialsilv" target="_blank">(GitHub)</a> <br>
+        Heain Yee <a href="https://www.linkedin.com/in/heain-yee-82105818/" target="_blank">(LinkedIn)</a> <a href="https://github.com/hanesy" target="_blank">(GitHub)</a> <br>
+        </p>
+    </footer>
+</html>
