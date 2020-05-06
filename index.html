@@ -62,16 +62,15 @@
             </div>
             <div class="col-md-8 chartPadding" style="padding:2%">
                 <h4><b> Introduction </h4></b>
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-                    <p>In doing this, we decided to choose a "modern" subset of Olympic Games, ranging from 1960 to 2016 to align with our economic and demographic data. As there is a larger breadth of competing countries in this range and a better record of population and wealth statistics.</p>
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
+                    <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
+                    <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
 
                 <h4><b> NBA History </h4></b>
                     <b><p>Why we chose 1979:</p></b>
                         <ul>
-                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
-                            </li>
-                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
+                            <li>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</li>
+                            <li>In our review of data, the 3-point line was consistently showing a high level of importance in evaluating a team's performance, which we believe causes a split in the machine learning data drastic enough to deem all time after the implementation of the 3-point line to be considered a better measure of ‘modern NBA’ basketball.</li>
                         </ul>
                     <b><p>Rule changes (timeline)</p></b>
                         <ul>
@@ -79,12 +78,15 @@
                             </li>
                             <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
                         </ul>
-                    <b><p>2019 season (when it stopped)</p></b>
+                    <b><p>2019-2020 season</p></b>
                         <ul>
-                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
-                            </li>
-                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
+                            <li>If you haven't heard about Corona Virus, this was the reason why this season stopped at 80% of the end of the regular season. As this happened, we thought it would be interesting to look at which teams might have made it to the Playoffs.</li>
+                            <li>Using Machine Learning we will attempt to provide a look at what the Playoffs may have looked like.</li>
                         </ul>
+                
+                <br>
+                <br> 
+
                 <h4><b> Source Data (Scraping)</h4></b>
                     
                     <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
@@ -133,7 +135,8 @@
                       </div>
 
 
-
+                <br>
+                <br>
 
                 <h4><b> Data pre-processing</h4></b>
                     <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
@@ -146,39 +149,180 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Comparison</th>
-                            <th scope="col">Logistic Regression</th>
-                            <th scope="col">Random Forest</th>
-                            <th scope="col">SVM</th>
+                            <th scope="col">(without GWL)</th>
+                            <th scope="col">Logistic (Scaled)</th>
+                            <th scope="col">Random Forests (Scaled)</th>
+                            <th scope="col">SVM (Scaled)</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">Training Score</th>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <th scope="row">East, Train</th>
+                            <td>.889</td>
+                            <td>1.0</td>
+                            <td>.91</td>
                           </tr>
                           <tr>
-                            <th scope="row">Test Score</th>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <th scope="row">East, Test</th>
+                            <td>.888</td>
+                            <td>.93 (.91?)</td>
+                            <td>.87</td>
                           </tr>
                           <tr>
-                            <th scope="row">Predictions accuracy</th>
-                            <td>80%</td>
-                            <td>80%</td>
-                            <td>80%</td>
+                            <th scope="row">West, Train</th>
+                            <td>.90</td>
+                            <td>1.0</td>
+                            <td>.93</td>
                           </tr>
                           <tr>
-                            <th scope="row">Predicted team</th>
-                            <td>Warriors</td>
-                            <td>Warriors</td>
-                            <td>Warriors</td>
+                            <th scope="row">West, Test</th>
+                            <td>.78</td>
+                            <td>.91 (.89)</td>
+                            <td>.82</td>
                           </tr>
                         </tbody>
                       </table>
+                      <br>
+                      <br>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">(GWL)</th>
+                            <th scope="col">Logistic (Scaled)</th>
+                            <th scope="col">Random Forests (Scaled)</th>
+                            <th scope="col">SVM (Scaled)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">East, Train</th>
+                            <td>.94</td>
+                            <td>1.0</td>
+                            <td>.94</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">East, Test</th>
+                            <td>.96</td>
+                            <td>.91</td>
+                            <td>.96</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">West, Train</th>
+                            <td>.94</td>
+                            <td>1.0</td>
+                            <td>.94</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">West, Test</th>
+                            <td>.93</td>
+                            <td>.91 (.95)</td>
+                            <td>.91</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                
+                
+                <br>
+
+                <h4><b> Features importance</h4></b>
+
+                <br> 
+
+                <h4><b> 2019</h4></b>
+
+                <div class="row">
+                    <div>
+                        <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/">
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Ranking</th>
+                                <th scope="col">2019 Actual Data</th>
+                                <th scope="col">Logistic Model</th>
+                                <th scope="col">Random Forest</th>
+                                <th scope="col">SVM</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Team A</td>
+                                <td>Team 10 / 1.0</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Team B</td>
+                                <td>Team 2</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Team C</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td>Team D</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Ranking</th>
+                                <th scope="col">2019 Actual Data</th>
+                                <th scope="col">Logistic Model</th>
+                                <th scope="col">Random Forest</th>
+                                <th scope="col">SVM</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Team A</td>
+                                <td>Team 10 / 1.0</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Team B</td>
+                                <td>Team 2</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Team C</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td>Team D</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>    
+                <br> 
+                
                 <h4><b> What does the model say about 2019 season data?</h4></b>
                     <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
                     </p>
