@@ -5,3 +5,4 @@
 .ipynb_checkpoints/Preprocessing-checkpoint.ipynb
 .ipynb_checkpoints/random_forests-checkpoint.ipynb
 .ipynb_checkpoints/*
+*/.ipynb_checkpoints/*
