@@ -3,3 +3,19 @@
     background-color: #17408B;
     color: white;
 }
+
+.panel-title {
+    color: black
+}
+
+#division_map {
+    /* width: 100%; */
+    position:relative;
+    z-index:0;
+    height: 150%;
+    background-position: center;
+    opacity: 0.25;
+    /* z-index: -1; */
+    /* background-repeat: no-repeat; */
+    /* position: relative; */
+}
