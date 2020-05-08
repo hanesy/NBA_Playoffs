@@ -1,5 +1,4 @@
 .topBanner {
-    /* object-fit: cover; */
     background-color: #17408B;
     color: white;
 }
@@ -9,15 +8,16 @@
 }
 
 #division_map {
-    /* width: 100%; */
     position:relative;
+    height: 350px;
     z-index:0;
-    /* height: 150%; */
     background-position: center;
-    opacity: 0.25;
-    /* z-index: -1; */
+    /* opacity: 0.45; */
     background-repeat: no-repeat;
-    /* position: relative; */
+}
+
+#timeline {
+    height: 300px
 }
 
 table {
@@ -26,6 +26,3 @@ table {
     text-align: center;
 }
 
-  /* td {
-    width: 25% ; */
-  /* } */

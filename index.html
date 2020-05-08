@@ -15,28 +15,28 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <!-- for icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
         
         <!-- link css sheet  -->
         <link rel="stylesheet" href="static/style.css">
 
         <!-- D3 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
 
         <!-- High Charts -->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
 
         <!-- Plotly -->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 
         <!-- Leaflet CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" /> -->
         <!-- Leaflet JavaScript -->
-        <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-        <script src="/static/js/jquery-2.1.1.min.js"></script>
-        <style>
-            #map{ height: 800px; width:1000px; margin-left:auto; margin-right:auto; }
-        </style>
+        <!-- <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script> -->
+        <!-- <script src="/static/js/jquery-2.1.1.min.js"></script> -->
+        <!-- <style> -->
+            <!-- #map{ height: 800px; width:1000px; margin-left:auto; margin-right:auto; } -->
+        <!-- </style> -->
 
     </head>
 
@@ -62,78 +62,35 @@
             </div>
             <div class="col-md-10 chartPadding" style="padding:2%">
                 <h4><b> Introduction </h4></b>
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
-                    <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
-                    <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
-
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/">
+                    </div>  
+                    <div class="col-md-8">
+                      <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
+                      <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
+                      <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
+                    </div>
+                  </div>
+                  <br>      
                 <h4><b> NBA History </h4></b>
                     <b><p>Why we chose 1979:</p></b>
-                        <ul>
-                            <li>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</li>
-                            <li>In our review of data, the 3-point line was consistently showing a high level of importance in evaluating a team's performance, which we believe causes a split in the machine learning data drastic enough to deem all time after the implementation of the 3-point line to be considered a better measure of ‘modern NBA’ basketball.</li>
-                        </ul>
-                    <b><p>Rule changes (timeline)</p></b>
-                        <ul>
-                            <li>Country names and boundaries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
-                            </li>
-                            <li>Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.</li>
-                        </ul>
-                    <b><p>2019-2020 season</p></b>
-                        <ul>
-                            <li>If you haven't heard about Corona Virus, this was the reason why this season stopped at 80% of the end of the regular season. As this happened, we thought it would be interesting to look at which teams might have made it to the Playoffs.</li>
-                            <li>Using Machine Learning we will attempt to provide a look at what the Playoffs may have looked like.</li>
-                        </ul>
+                      
+                      <p>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</p>
+                            
+                            
+                    <b><p>Impacts on the data</p></b>
+                      <img id= "timeline" src="Images/NBA_timeline.png" alt="NBA rules timeline">
+
                 
                 <br>
                 <br> 
 
-                <h4><b> Source Data (Scraping)</h4></b>
+                <h4><b> Source Data </h4></b>
                     
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" href="#collapse1">Columns names</a>
-                            </h4>
-                          </div>
-                          <div id="collapse1" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li class="list-group-item">RK - End of Regular Season Ranking</li>
-                                <li class="list-group-item">Team - Team Name</li>
-                                <li class="list-group-item">Year - Season Year</li>
-                                <li class="list-group-item">G - Number of Games</li>
-                                <li class="list-group-item">W - Wins</li>
-                                <li class="list-group-item">L - Losses</li>
-                                <li class="list-group-item">Conf - Conference/Region (East or West)</li>
-                                <li class="list-group-item">MP - Minutes Played</li>
-                                <li class="list-group-item">FG - Field Goals Made (any point scored that is not a 3 pointer or a free throw)</li>
-                                <li class="list-group-item">FGA - Field Goals Attempted</li>
-                                <li class="list-group-item">FG% - Field Goals Percentage</li>
-                                <li class="list-group-item">3P - 3 Pointers Made</li>
-                                <li class="list-group-item">3PA - 3 Pointers Attempted</li>
-                                <li class="list-group-item">3P% - 3 Pointers Percentage</li>
-                                <li class="list-group-item">2P - 2 Pointers (or Free Throws)</li>
-                                <li class="list-group-item">2PA - 2 Pointers Attempted</li>
-                                <li class="list-group-item">2P% - 2 Pointers Percentage</li>
-                                <li class="list-group-item">FT - Free Throws</li>
-                                <li class="list-group-item">FTA - Free Throws Attempted</li>
-                                <li class="list-group-item">FT% - Free Throws Percentage</li>
-                                <li class="list-group-item">ORB - Offensive Rebounds</li>
-                                <li class="list-group-item">DRB - Defensive Rebounds</li>
-                                <li class="list-group-item">AST - Assists</li>
-                                <li class="list-group-item">STL - Steals</li>
-                                <li class="list-group-item">BLK - Blocks</li>
-                                <li class="list-group-item">TOV - Turnovers</li>
-                                <li class="list-group-item">PF - Personal Fouls</li>
-                                <li class="list-group-item">PTS - Points +/- Plus Minus</li>
-                            </ul>
-                            <div class="panel-footer">Footer</div>
-                          </div>
-                        </div>
-                      </div>
-
+                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.</p>
+                    
 
                 <br>
                 <br>
@@ -210,8 +167,8 @@
                 <br>
 
                 <h4><b> Features importance</h4></b>
-                    <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/">
-                    
+                    <!-- <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/">
+                     -->
                 <div class="row">
                     
 <!-- West Features Importances -->
@@ -280,6 +237,9 @@
                           </tbody>
                         </table>
                   </div>
+
+
+        
               
 <!-- East Features Importances -->
 
@@ -349,15 +309,119 @@
                     </table>
                   </div>
                 </div>    
+
+                <p>
+                  <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button> -->
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Column Abreviations</button>
+                </p>
+                <div class="row">
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                      <div class="card card-body">
+                        <p>RK - End of Regular Season Ranking</p>
+                        <p>Team - Team Name</p>
+                        <p>Year - Season Year</p>
+                        <p>G - Number of Games</p>
+                        <p>W - Wins</p>
+                        <p>L - Losses</p>
+                        <p>Conf - Conference/Region (East or West)</p>
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="col">  
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                      <div class="card card-body">
+                        <p>MP - Minutes Played</p>
+                        <p>FG - Field Goals Made (any throw that is not a free throw)</p>
+                        <p>FGA - Field Goals Attempted</p>
+                        <p>FG% - Field Goals Percentage</p>
+                        <p>3P - 3 Pointers Made</p>
+                        <p>3PA - 3 Pointers Attempted</p>
+                        <p>3P% - 3 Pointers Percentage</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                      <div class="card card-body">
+                        <p>2P - 2 Pointers (or Free Throws)</p>
+                        <p>2PA - 2 Pointers Attempted</p>
+                        <p>2P% - 2 Pointers Percentage</p>
+                        <p>FT - Free Throws</p>
+                        <p>FTA - Free Throws Attempted</p>
+                        <p>FT% - Free Throws Percentage</p>
+                        <p>ORB - Offensive Rebounds</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                      <div class="card card-body">
+                        <p>DRB - Defensive Rebounds</p>
+                        <p>AST - Assists</p>
+                        <p>STL - Steals</p>
+                        <p>BLK - Blocks</p>
+                        <p>TOV - Turnovers</p>
+                        <p>PF - Personal Fouls</p>
+                        <p>PTS - Average Points per Game</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h6 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Columns names</a>
+                      </h6>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                      <ul class="list-group">
+                          <li class="list-group-item">RK - End of Regular Season Ranking</li>
+                          <li class="list-group-item">Team - Team Name</li>
+                          <li class="list-group-item">Year - Season Year</li>
+                          <li class="list-group-item">G - Number of Games</li>
+                          <li class="list-group-item">W - Wins</li>
+                          <li class="list-group-item">L - Losses</li>
+                          <li class="list-group-item">Conf - Conference/Region (East or West)</li>
+                          <li class="list-group-item">MP - Minutes Played</li>
+                          <li class="list-group-item">FG - Field Goals Made (any throw that is not a free throw)</li>
+                          <li class="list-group-item">FGA - Field Goals Attempted</li>
+                          <li class="list-group-item">FG% - Field Goals Percentage</li>
+                          <li class="list-group-item">3P - 3 Pointers Made</li>
+                          <li class="list-group-item">3PA - 3 Pointers Attempted</li>
+                          <li class="list-group-item">3P% - 3 Pointers Percentage</li>
+                          <li class="list-group-item">2P - 2 Pointers (or Free Throws)</li>
+                          <li class="list-group-item">2PA - 2 Pointers Attempted</li>
+                          <li class="list-group-item">2P% - 2 Pointers Percentage</li>
+                          <li class="list-group-item">FT - Free Throws</li>
+                          <li class="list-group-item">FTA - Free Throws Attempted</li>
+                          <li class="list-group-item">FT% - Free Throws Percentage</li>
+                          <li class="list-group-item">ORB - Offensive Rebounds</li>
+                          <li class="list-group-item">DRB - Defensive Rebounds</li>
+                          <li class="list-group-item">AST - Assists</li>
+                          <li class="list-group-item">STL - Steals</li>
+                          <li class="list-group-item">BLK - Blocks</li>
+                          <li class="list-group-item">TOV - Turnovers</li>
+                          <li class="list-group-item">PF - Personal Fouls</li>
+                          <li class="list-group-item">PTS - Average Points per Game</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
                 <br> 
                 <br> 
+
 
                 <h4><b> 2019</h4></b>
                 <div class="row">
                     
-                  
+  
                                     
-<!-- West 2019 predictions -->
+<!-- East 2019 predictions -->
                   <div class="col-md-6">
                     <table class="table">
                       <thead>
@@ -422,7 +486,7 @@
                       </tbody>
                     </table>
                   </div>
-<!-- East 2019 predictions -->                
+<!-- West 2019 predictions -->                
                   <div class="col-md-6">
                     <table class="table">
                       <thead>
@@ -487,6 +551,81 @@
                       </tbody>
                     </table>
                   </div>
+                  <p>
+                    <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button> -->
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="west_teams east_teams">Teams Names</button>
+                  </p>
+                  <div class="row">
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="west_teams">
+                        <div class="card card-body">
+                          <p>RK - End of Regular Season Ranking</p>
+                          <p>Team - Team Name</p>
+                          <p>Year - Season Year</p>
+                          <p>G - Number of Games</p>
+                          <p>W - Wins</p>
+                          <p>L - Losses</p>
+                          <p>Conf - Conference/Region (East or West)</p>
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="col">  
+                      <div class="collapse multi-collapse" id="east_teams">
+                        <div class="card card-body">
+                          <p>MP - Minutes Played</p>
+                          <p>FG - Field Goals Made (any throw that is not a free throw)</p>
+                          <p>FGA - Field Goals Attempted</p>
+                          <p>FG% - Field Goals Percentage</p>
+                          <p>3P - 3 Pointers Made</p>
+                          <p>3PA - 3 Pointers Attempted</p>
+                          <p>3P% - 3 Pointers Percentage</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">Teams names</a>
+                      </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <li class="list-group-item">ATL - Atlanta Hawks</li>
+                        <li class="list-group-item">BKN - Brooklyn Nets</li>
+                        <li class="list-group-item">BOS - Boston Celtics</li>
+                        <li class="list-group-item">CHA - Charlotte Hornets</li>
+                        <li class="list-group-item">CHI - Chicago Bulls</li>
+                        <li class="list-group-item">CLE - Cleveland Cavaliers</li>
+                        <li class="list-group-item">DAL - Dallas Mavericks</li>
+                        <li class="list-group-item">DEN - Denver Nuggets</li>
+                        <li class="list-group-item">DET - Detroit Pistons</li>
+                        <li class="list-group-item">GSW - Golden State Warriors</li>
+                        <li class="list-group-item">HOU - Houston Rockets</li>
+                        <li class="list-group-item">IND - Indiana Pacers</li>
+                        <li class="list-group-item">LAC - Los Angeles Clippers</li>
+                        <li class="list-group-item">LAL - Los Angeles Lakers</li>
+                        <li class="list-group-item">MEM - Memphis Grizzlies</li>
+                        <li class="list-group-item">MIA - Miami Heat</li>
+                        <li class="list-group-item">MIL - Milwaukee Bucks</li>
+                        <li class="list-group-item">MIN - Minnesota Timberwolves</li>
+                        <li class="list-group-item">NOP - New Orleans Pelicans</li>
+                        <li class="list-group-item">NYK - New York Knicks</li>
+                        <li class="list-group-item">OKC - Oklahoma City Thunder</li>
+                        <li class="list-group-item">ORL - Orlando Magic</li>
+                        <li class="list-group-item">PHI - Philadelphia 76ers</li>
+                        <li class="list-group-item">PHX - Phoenix Suns</li>
+                        <li class="list-group-item">POR - Portland Trail Blazers</li>
+                        <li class="list-group-item">SAC - Sacramento Kings</li>
+                        <li class="list-group-item">SAS - San Antonio Spurs</li>
+                        <li class="list-group-item">TOR - Toronto Raptors</li>
+                        <li class="list-group-item">UTA - Utah Jazz</li>
+                        <li class="list-group-item">WAS - Washington Wizards</li>                    
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
                 <h4><b> What does the model say about 2019 season data?</h4></b>
                     <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
