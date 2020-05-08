@@ -11,13 +11,18 @@
     padding: 10px
 }
 
+.btn {
+    background-color: #17408B;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #division_map {
     position:relative;
     width: 200%;
-    /* padding: 5%; */
     z-index:0;
     background-position: center;
-    /* opacity: 0.45; */
     background-repeat: no-repeat;
 }
 
