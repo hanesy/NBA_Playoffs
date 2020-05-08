@@ -55,7 +55,7 @@
         <div class="col-md-1">
         </div>
       </div>
-
+      
 <!-- NBA History -->
       <div class="row">
         <div class="col-md-1">
@@ -66,6 +66,7 @@
                 
               <p>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</p>
               <img id= "timeline" src="Images/NBA_timeline.png" alt="NBA rules timeline">
+              <br>
         </div>
         <div class="col-md-1">
         </div>
@@ -122,74 +123,103 @@
         </div>
       </div>
 
-<!-- Scores [MISSING] update table -->
+<!-- Scores [MISSING] update tables -->
 
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
           <h4><b> Scores</h4></b>
-      <!-- Score on train and test on the 3 models -->
             <p>Each model was run with all available features [“W”], and then without the “Wins” or “Losses” column [“No WL”].  We found that including the Wins and Losses column improved both Training and Testing scores for the Logistic and SVM model in both East and West, but actually decreased the Random Forest East Test score by 6.6%.</p>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col" colspan="2">Logistic</th>
-                    <th scope="col" colspan="2">Random Forests</th>
-                    <th scope="col" colspan="2">Support Vector Machine</th>
-                  </tr>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">GWL</th>
-                    <th scope="col">No GWL</th>
-                    <th scope="col">GWL</th>
-                    <th scope="col">No GWL</th>
-                    <th scope="col">GWL</th>
-                    <th scope="col">No GWL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">East-Train</th>
-                    <td>.940</td>
-                    <td>.888</td>
-                    <td>.998</td>
-                    <td>1.000</td>
-                    <td>.942</td>
-                    <td>.911</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">East-Test</th>
-                    <td>.933</td>
-                    <td>.867</td>
-                    <td>.866</td>
-                    <td>.867</td>
-                    <td>.933</td>
-                    <td>.867</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">West-Train</th>
-                    <td>.927</td>
-                    <td>.907</td>
-                    <td>1.000</td>
-                    <td>1.000</td>
-                    <td>.935</td>
-                    <td>.927</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">West-Test</th>
-                    <td>1.000</td>
-                    <td>.867</td>
-                    <td>1.000</td>
-                    <td>1.000</td>
-                    <td>.933</td>
-                    <td>.800</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="row">                    
+              <!-- West Features Importances [MISSING] update table -->
+              <div class="col-md-6">
+                <p>West</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col" colspan="2">Logistic</th>
+                      <th scope="col" colspan="2">Random Forests</th>
+                      <th scope="col" colspan="2">Support Vector Machine</th>
+                    </tr>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">West-Train</th>
+                      <td>.927</td>
+                      <td>.907</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
+                      <td>.935</td>
+                      <td>.927</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">West-Test</th>
+                      <td>1.000</td>
+                      <td>.867</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
+                      <td>.933</td>
+                      <td>.800</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- East Features Importances [MISSING] update table -->
+              <div class="col-md-6">
+                <p>East</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col" colspan="2">Logistic</th>
+                      <th scope="col" colspan="2">Random Forests</th>
+                      <th scope="col" colspan="2">Support Vector Machine</th>
+                    </tr>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">East-Train</th>
+                      <td>.940</td>
+                      <td>.888</td>
+                      <td>.998</td>
+                      <td>1.000</td>
+                      <td>.942</td>
+                      <td>.911</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">East-Test</th>
+                      <td>.933</td>
+                      <td>.867</td>
+                      <td>.866</td>
+                      <td>.867</td>
+                      <td>.933</td>
+                      <td>.867</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
         </div>
-        
         <div class="col-md-1">
         </div>
       </div>
@@ -541,8 +571,7 @@
                 </tbody>
               </table>
             </div>
-      
-                  
+
             <p>
               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".teams-collapse" aria-expanded="false" aria-controls="west_teams east_teams">Teams Names</button>
             </p>
