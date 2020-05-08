@@ -13,568 +13,605 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-        <!-- for icons -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
         
         <!-- link css sheet  -->
         <link rel="stylesheet" href="static/style.css">
-
-        <!-- D3 -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
-
-        <!-- High Charts -->
-        <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
-
-        <!-- Plotly -->
-        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-
-        <!-- Leaflet CSS -->
-        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" /> -->
-        <!-- Leaflet JavaScript -->
-        <!-- <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script> -->
-        <!-- <script src="/static/js/jquery-2.1.1.min.js"></script> -->
-        <!-- <style> -->
-            <!-- #map{ height: 800px; width:1000px; margin-left:auto; margin-right:auto; } -->
-        <!-- </style> -->
 
     </head>
 
     <body class="body">
             
-        <div class="row topBanner">
-            <div class="col-md-4 text-center">
-                <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
-            </div>
-            <div class="col-md-4 text-center">
-                <br>
-                <h1 class=title>Playoffs Predictions</h1></div>
-                <br>
-            <div class="col-md-4 text-center">
-                <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
-            </div>
-
+      <div class="row topBanner">
+        <div class="col-md-4 text-center">
+            <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
         </div>
+        <div class="col-md-4 text-center">
+            <br>
+            <h1 class=title>Playoffs Predictions</h1></div>
+            <br>
+        <div class="col-md-4 text-center">
+            <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
+        </div>
+      </div>
 
-
-        <div class="row">
-            <div class="col-md-1">
+<!-- Introduction -->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <h4><b> Introduction </h4></b>
+            <br>
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <img id= "division_map" src="Images/nba_division_map.jpg" class="img-fluid" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/" >
+              </div>  
+              <div class="col-sm-8 col-md-8">
+                <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
+                <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
+                <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
+              </div>
             </div>
-            <div class="col-md-10 chartPadding" style="padding:2%">
-                <h4><b> Introduction </h4></b>
-                  <br>
-                  <div class="row">
-                    <div class="col-sm-4 col-md-4">
-                      <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/" >
-                    </div>  
-                    <div class="col-sm-1 col-md-1"></div>
-                    <div class="col-sm-7 col-md-7">
-                      <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
-                      <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
-                      <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
-                    </div>
-                  </div>
-                  <br>      
-                <h4><b> NBA History </h4></b>
-                    <b><p>Why we chose 1979:</p></b>
-                      
-                      <p>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</p>
-                      <br> 
-                      <!-- center the image      -->
-                      <img id= "timeline" src="Images/NBA_timeline.png" alt="NBA rules timeline">
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
 
+<!-- NBA History -->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">   
+          <h4><b> NBA History </h4></b>
+            <b><p>Why we chose 1979:</p></b>
                 
-                <br>
-                <br> 
+              <p>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</p>
+              <br> 
+              <img id= "timeline" src="Images/NBA_timeline.png" alt="NBA rules timeline">
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
 
-                <h4><b> Source Data </h4></b>
-                    
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.</p>
-                    
-                <br>
-                <br>
-
-                <h4><b> Data pre-processing</h4></b>
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-                <h4><b> Different Models used and differences among them</h4></b>
-                    
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-
-<!-- Score on train and test on the 3 models -->
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col"></th>
-                            <th scope="col" colspan="2">Logistic</th>
-                            <th scope="col" colspan="2">Random Forests</th>
-                            <th scope="col" colspan="2">Support Vector Machine</th>
-                          </tr>
-                          <tr>
-                            <th scope="col"></th>
-                            <th scope="col">GWL</th>
-                            <th scope="col">No GWL</th>
-                            <th scope="col">GWL</th>
-                            <th scope="col">No GWL</th>
-                            <th scope="col">GWL</th>
-                            <th scope="col">No GWL</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">East-Train</th>
-                            <td>.940</td>
-                            <td>.888</td>
-                            <td>.998</td>
-                            <td>1.000</td>
-                            <td>.942</td>
-                            <td>.911</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">East-Test</th>
-                            <td>.933</td>
-                            <td>.867</td>
-                            <td>.866</td>
-                            <td>.867</td>
-                            <td>.933</td>
-                            <td>.867</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">West-Train</th>
-                            <td>.927</td>
-                            <td>.907</td>
-                            <td>1.000</td>
-                            <td>1.000</td>
-                            <td>.935</td>
-                            <td>.927</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">West-Test</th>
-                            <td>1.000</td>
-                            <td>.867</td>
-                            <td>1.000</td>
-                            <td>1.000</td>
-                            <td>.933</td>
-                            <td>.800</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <br>
-                
-                <br>
-
-                <h4><b> Features importance</h4></b>
-                    <!-- <img id= "division_map" src="Images/nba_division_map.jpg" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/">
-                     -->
-                <div class="row">
-                    
-<!-- West Features Importances -->
-                  <div class="col-md-6">
-                    <table class="table">
-                          <thead>
-                            <tr>
-                              <th scope="col" colspan="2">Logistic</th>
-                              <th scope="col" colspan="2">Random Forests</th>
-                              <th scope="col" colspan="2">Support Vector Machine</th>
-                            </tr>
-                            <tr>
-                              <th scope="col">GWL</th>
-                              <th scope="col">No GWL</th>
-                              <th scope="col">GWL</th>
-                              <th scope="col">No GWL</th>
-                              <th scope="col">GWL</th>
-                              <th scope="col">No GWL</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <p>STL (+)</p>
-                                <p>ORB (-)</p>
-                                <p>AST (+)</p>
-                                <p>PTS (-)</p>
-                                <p>2P (+)</p>
-                              </td>
-                              <td>
-                                <p>W% (+)</p>
-                                <p>STL (+)</p>
-                                <p>TOV (-)</p>
-                                <p>DRB (+)</p>
-                                <p>FG% (+)</p>
-                              </td>
-                              <td>
-                                <p>W%</p>
-                                <p>L</p>
-                                <p>W</p>
-                                <p>2P%</p>
-                                <p>AST</p>
-                              </td>
-                              <td>
-                                <p>W%</p>
-                                <p>2P%</p>
-                                <p>FG%</p>
-                                <p>DRB</p>
-                                <p>AST</p>
-                              </td>
-                              <td>
-                                <p>STL (+)</p>
-                                <p>PTS (-)</p>
-                                <p>ORB (-)</p>
-                                <p>AST (+)</p>
-                                <p>3PA (+)</p>
-                              </td>
-                              <td>
-                                <p>W% (+)</p>
-                                <p>STL (+)</p>
-                                <p>TOV (-)</p>
-                                <p>DRB (+)</p>
-                                <p>FTA (+)</p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                  </div>
-
-
-        
+<!-- Source Data -->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10"> 
+          <h4><b> Source Data </h4></b>
               
-<!-- East Features Importances -->
-
-                  <div class="col-md-6">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col" colspan="2">Logistic</th>
-                          <th scope="col" colspan="2">Random Forests</th>
-                          <th scope="col" colspan="2">Support Vector Machine</th>
-                        </tr>
-                        <tr>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <p>FT% (+)</p>
-                            <p>3P% (-)</p>
-                            <p>PF (+)</p>
-                            <p>2P (-)</p>
-                            <p>2PA (-)</p>
-                          </td>
-                          <td>
-                            <p>W% (+)</p>
-                            <p>DRB (+)</p>
-                            <p>TOV (-)</p>
-                            <p>2PA (-)</p>
-                            <p>STL (+)</p>
-                          </td>
-                          <td>
-                            <p>W%</p>
-                            <p>L</p>
-                            <p>W</p>
-                            <p>2P%</p>
-                            <p>PTS</p>
-                          </td>
-                          <td>
-                            <p>W%</p>
-                            <p>2P%</p>
-                            <p>FG%</p>
-                            <p>DRB</p>
-                            <p>PF</p>
-                          </td>
-                          <td>
-                            <p>FT% (+)</p>
-                            <p>PF (+)</p>
-                            <p>3P% (-)</p>
-                            <p>3P (-)</p>
-                            <p>FTA (-)</p>
-                          </td>
-                          <td>
-                            <p>W% (+)</p>
-                            <p>2PA (-)</p>
-                            <p>DRB (+)</p>
-                            <p>ORB (+)</p>
-                            <p>STL (+)</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>    
-
-                <p>
-                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".column_names" aria-expanded="false" aria-controls="block1 block2 block3 block4">Column Abbreviations</button>
-                </p>
-                <div class="row">
-                  <div class="col">
-                    <div class="collapse column_names" id="block1">
-                      <div class="card card-body">
-                        <p>RK - End of Regular Season Ranking</p>
-                        <p>Team - Team Name</p>
-                        <p>Year - Season Year</p>
-                        <p>W% - Win percentage</p>
-                        <p>W - Wins</p>
-                        <p>L - Losses</p>
-                        <p>Conf - Conference/Region (East or West)</p>
-                      </div>
-                    </div>
-                  </div>  
-                  <div class="col">  
-                    <div class="collapse column_names" id="block2">
-                      <div class="card card-body">
-                        <p>MP - Minutes Played</p>
-                        <p>FG - Field Goals Made</p>
-                        <p>FGA - Field Goals Attempted</p>
-                        <p>FG% - Field Goals Percentage</p>
-                        <p>3P - 3 Pointers Made</p>
-                        <p>3PA - 3 Pointers Attempted</p>
-                        <p>3P% - 3 Pointers Percentage</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="collapse column_names" id="block3">
-                      <div class="card card-body">
-                        <p>2P - 2 Pointers (or Free Throws)</p>
-                        <p>2PA - 2 Pointers Attempted</p>
-                        <p>2P% - 2 Pointers Percentage</p>
-                        <p>FT - Free Throws</p>
-                        <p>FTA - Free Throws Attempted</p>
-                        <p>FT% - Free Throws Percentage</p>
-                        <p>ORB - Offensive Rebounds</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="collapse column_names" id="block4">
-                      <div class="card card-body">
-                        <p>DRB - Defensive Rebounds</p>
-                        <p>AST - Assists</p>
-                        <p>STL - Steals</p>
-                        <p>BLK - Blocks</p>
-                        <p>TOV - Turnovers</p>
-                        <p>PF - Personal Fouls</p>
-                        <p>PTS - Average Points per Game</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <br> 
-                <br> 
-
-
-                <h4><b> 2019</h4></b>
-                <div class="row">                                  
-<!-- East 2019 predictions -->
-                  <div class="col-md-6">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col" colspan="2"></th>
-                          <th scope="col" colspan="2">Logistic</th>
-                          <th scope="col" colspan="2">Random Forests</th>
-                          <th scope="col" colspan="2">Support Vector Machine</th>
-                        </tr>
-                        <tr>
-                          <th scope="col">Rank</th>
-                          <th scope="col">2019 Actual</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>MIL</td>
-                          <td>MIL (.99)</td>
-                          <td>MIL (.99)</td>
-                          <td>MIL (1.0)</td>
-                          <td>MIL (.94)</td>
-                          <td>MIL (1.0)</td>
-                          <td>MIL (1.0)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>PHI</td>
-                          <td>TOR (.99)</td>
-                          <td>TOR (.98)</td>
-                          <td>PHI (1.0)</td>
-                          <td>PHI (.92)</td>
-                          <td>TOR (1.0)</td>
-                          <td>TOR (1.0)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>TOR</td>
-                          <td>PHI (.99)</td>
-                          <td>PHI (.94)</td>
-                          <td>TOR (.97)</td>
-                          <td>TOR (.90)</td>
-                          <td>PHI (.99)</td>
-                          <td>PHI (.99)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>BOS</td>
-                          <td>BOS (.99)</td>
-                          <td>BOS (.92)</td>
-                          <td>IND (.97)</td>
-                          <td>BOS (.90)</td>
-                          <td>BOS (.99)</td>
-                          <td>BOS (.99)</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-<!-- West 2019 predictions -->                
-                  <div class="col-md-6">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col" colspan="2"></th>
-                          <th scope="col" colspan="2">Logistic</th>
-                          <th scope="col" colspan="2">Random Forests</th>
-                          <th scope="col" colspan="2">Support Vector Machine</th>
-                        </tr>
-                        <tr>
-                          <th scope="col">Rank</th>
-                          <th scope="col">2019 Actual</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                          <th scope="col">GWL</th>
-                          <th scope="col">No GWL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>GSW</td>
-                          <td>GSW (.99)</td>
-                          <td>GSW (.96)</td>
-                          <td>GSW (1.0)</td>
-                          <td>GSW (.99)</td>
-                          <td>GSW (.99)</td>
-                          <td>GSW (.99)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>LAC</td>
-                          <td>TOR (.99)</td>
-                          <td>TOR (.98)</td>
-                          <td>PHI (1.0)</td>
-                          <td>PHI (.92)</td>
-                          <td>TOR (1.0)</td>
-                          <td>TOR (1.0)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>POR</td>
-                          <td>PHI (.99)</td>
-                          <td>PHI (.94)</td>
-                          <td>TOR (.97)</td>
-                          <td>TOR (.90)</td>
-                          <td>PHI (.99)</td>
-                          <td>PHI (.99)</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>OKC</td>
-                          <td>BOS (.99)</td>
-                          <td>BOS (.92)</td>
-                          <td>IND (.97)</td>
-                          <td>BOS (.90)</td>
-                          <td>BOS (.99)</td>
-                          <td>BOS (.99)</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <p>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".teams-collapse" aria-expanded="false" aria-controls="west_teams east_teams">Teams Names</button>
-                  </p>
-                  <div class="row">
-                    <div class="col">
-                      <div class="collapse teams-collapse" id="west_teams">
-                        <div class="card card-body">
-                          <p>DAL - Dallas Mavericks</p>
-                          <p>DEN - Denver Nuggets</p>
-                          <p>GSW - Golden State Warriors</p>
-                          <p>HOU - Houston Rockets</p>
-                          <p>LAC - Los Angeles Clippers</p>
-                          <p>LAL - Los Angeles Lakers</p>
-                          <p>MEM - Memphis Grizzlies</p>
-                          <p>MIN - Minnesota Timberwolves</p>
-                          <p>NOP - New Orleans Pelicans</p>
-                          <p>OKC - Oklahoma City Thunder</p>
-                          <p>PHX - Phoenix Suns</p>
-                          <p>POR - Portland Trail Blazers</p>
-                          <p>SAC - Sacramento Kings</p>
-                          <p>SAS - San Antonio Spurs</p>
-                          <p>UTA - Utah Jazz</p>
-                        </div>
-                      </div>
-                    </div>  
-                    <div class="col">  
-                      <div class="collapse teams-collapse" id="east_teams">
-                        <div class="card card-body">
-                          <p>ATL - Atlanta Hawks</p>
-                          <p>BKN - Brooklyn Nets</p>
-                          <p>BOS - Boston Celtics</p>
-                          <p>CHA - Charlotte Hornets</p>
-                          <p>CHI - Chicago Bulls</p>
-                          <p>CLE - Cleveland Cavaliers</p>
-                          <p>DET - Detroit Pistons</p>
-                          <p>IND - Indiana Pacers</p>
-                          <p>MIA - Miami Heat</p>
-                          <p>MIL - Milwaukee Bucks</p>
-                          <p>NYK - New York Knicks</p>
-                          <p>ORL - Orlando Magic</p>
-                          <p>PHI - Philadelphia 76ers</p>
-                          <p>TOR - Toronto Raptors</p>
-                          <p>WAS - Washington Wizards</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>  
-                  
-                </div>
-
-                <h4><b> What does the model say about 2019 season data?</h4></b>
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-                <h4><b> What is the “better model”?</h4></b>
-                    <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
-                    </p>
-                <h4><b> If we would have more time, we would like to:</h4></b>
-                    <ul>
-                        <li>Model by decade/rule changes to see which features are the most important (observe changes in the game)</li>
-                        <li>Models to predict championships from playoff data</li>
-                        <li>East/West differences</li>
-                        <li>Offensive and defensive differences in importance</li>
-                    </ul>
-            </div>
-            <div class="col-md-1">
-            </div>
+            <p>To build our models we wanted to be able to pull as much data as possible to optimize machine learning. After reviewing various NBA data sites, we chose <a href="https://www.basketball-reference.com/" target="_blank">https://www.basketball-reference.com/</a></p>
+            <p>Reasoning:</p>
+              <ul>
+                <li>Most robust data tables</li>
+                <li>Longest history of data</li>
+                <li>High accuracy (spot checked against data on <a href="https://www.NBA.com/" target="_blank">NBA.com</a> and <a href="https://www.ESPN.com/" target="_blank">ESPN.com</a>)</li>
+                <li>Low level of complexity/Javascript on the website, allowing us to scrape without a web driver (cromedriver)</li>
+              </ul>
+            <p>To scrape the data we used HTML parsing with Python’s Beautifulsoup to build a JSON table per our specified date-range to go year-by-year (e.g. page-by-page) to scrape and parse the data needed from two separate tables housed on each year’s summary page (example: <a href="https://www.basketball-reference.com/leagues/NBA_2020.html" target="_blank">https://www.basketball-reference.com/leagues/NBA_2020.html</a>):</p>
+              <ul>
+                <li>Conference Standings – Collect ‘conference’, ‘wins’, and ‘losses’</li>
+                <li>Team Per Game Stats – Collect all other per-game average statistics</li>    
+              </ul>          
+            <p>This data was then written into a CSV file for Machine Learning analysis.</p>
+          <br>
         </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+
+<!-- Data Preprocessing and Training Testing and Predicting [DS] Correct text-->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10"> 
+          <h4><b> Data pre-processing</h4></b>
+              <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+              </p>
+          <h4><b> Different Models used and differences among them</h4></b>
+              
+              <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.</p>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+
+
+<!-- Scores [DS] correct text-->
+
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <h4><b> Scores</h4></b>
+<!-- Score on train and test on the 3 models -->
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col" colspan="2">Logistic</th>
+                    <th scope="col" colspan="2">Random Forests</th>
+                    <th scope="col" colspan="2">Support Vector Machine</th>
+                  </tr>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">East-Train</th>
+                    <td>.940</td>
+                    <td>.888</td>
+                    <td>.998</td>
+                    <td>1.000</td>
+                    <td>.942</td>
+                    <td>.911</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">East-Test</th>
+                    <td>.933</td>
+                    <td>.867</td>
+                    <td>.866</td>
+                    <td>.867</td>
+                    <td>.933</td>
+                    <td>.867</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">West-Train</th>
+                    <td>.927</td>
+                    <td>.907</td>
+                    <td>1.000</td>
+                    <td>1.000</td>
+                    <td>.935</td>
+                    <td>.927</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">West-Test</th>
+                    <td>1.000</td>
+                    <td>.867</td>
+                    <td>1.000</td>
+                    <td>1.000</td>
+                    <td>.933</td>
+                    <td>.800</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+        <div class="col-md-1">
+        </div>
+      </div>
+
+<!-- Features Importance -->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <h4><b> Features importance</h4></b>
+            <div class="row">                    
+      <!-- West Features Importances -->
+              <div class="col-md-6">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="2">Logistic</th>
+                      <th scope="col" colspan="2">Random Forests</th>
+                      <th scope="col" colspan="2">Support Vector Machine</th>
+                    </tr>
+                    <tr>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p>STL (+)</p>
+                        <p>ORB (-)</p>
+                        <p>AST (+)</p>
+                        <p>PTS (-)</p>
+                        <p>2P (+)</p>
+                      </td>
+                      <td>
+                        <p>W% (+)</p>
+                        <p>STL (+)</p>
+                        <p>TOV (-)</p>
+                        <p>DRB (+)</p>
+                        <p>FG% (+)</p>
+                      </td>
+                      <td>
+                        <p>W%</p>
+                        <p>L</p>
+                        <p>W</p>
+                        <p>2P%</p>
+                        <p>AST</p>
+                      </td>
+                      <td>
+                        <p>W%</p>
+                        <p>2P%</p>
+                        <p>FG%</p>
+                        <p>DRB</p>
+                        <p>AST</p>
+                      </td>
+                      <td>
+                        <p>STL (+)</p>
+                        <p>PTS (-)</p>
+                        <p>ORB (-)</p>
+                        <p>AST (+)</p>
+                        <p>3PA (+)</p>
+                      </td>
+                      <td>
+                        <p>W% (+)</p>
+                        <p>STL (+)</p>
+                        <p>TOV (-)</p>
+                        <p>DRB (+)</p>
+                        <p>FTA (+)</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+      <!-- East Features Importances -->
+
+              <div class="col-md-6">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="2">Logistic</th>
+                      <th scope="col" colspan="2">Random Forests</th>
+                      <th scope="col" colspan="2">Support Vector Machine</th>
+                    </tr>
+                    <tr>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                      <th scope="col">GWL</th>
+                      <th scope="col">No GWL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p>FT% (+)</p>
+                        <p>3P% (-)</p>
+                        <p>PF (+)</p>
+                        <p>2P (-)</p>
+                        <p>2PA (-)</p>
+                      </td>
+                      <td>
+                        <p>W% (+)</p>
+                        <p>DRB (+)</p>
+                        <p>TOV (-)</p>
+                        <p>2PA (-)</p>
+                        <p>STL (+)</p>
+                      </td>
+                      <td>
+                        <p>W%</p>
+                        <p>L</p>
+                        <p>W</p>
+                        <p>2P%</p>
+                        <p>PTS</p>
+                      </td>
+                      <td>
+                        <p>W%</p>
+                        <p>2P%</p>
+                        <p>FG%</p>
+                        <p>DRB</p>
+                        <p>PF</p>
+                      </td>
+                      <td>
+                        <p>FT% (+)</p>
+                        <p>PF (+)</p>
+                        <p>3P% (-)</p>
+                        <p>3P (-)</p>
+                        <p>FTA (-)</p>
+                      </td>
+                      <td>
+                        <p>W% (+)</p>
+                        <p>2PA (-)</p>
+                        <p>DRB (+)</p>
+                        <p>ORB (+)</p>
+                        <p>STL (+)</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".column_names" aria-expanded="false" aria-controls="block1 block2 block3 block4">Column Abbreviations</button>
+            </p>
+            <div class="row">
+              <div class="col">
+                <div class="collapse column_names" id="block1">
+                  <div class="card card-body">
+                    <p>RK - End of Regular Season Ranking</p>
+                    <p>Team - Team Name</p>
+                    <p>Year - Season Year</p>
+                    <p>W% - Win percentage</p>
+                    <p>W - Wins</p>
+                    <p>L - Losses</p>
+                    <p>Conf - Conference/Region (East or West)</p>
+                  </div>
+                </div>
+              </div>  
+              <div class="col">  
+                <div class="collapse column_names" id="block2">
+                  <div class="card card-body">
+                    <p>MP - Minutes Played</p>
+                    <p>FG - Field Goals Made</p>
+                    <p>FGA - Field Goals Attempted</p>
+                    <p>FG% - Field Goals Percentage</p>
+                    <p>3P - 3 Pointers Made</p>
+                    <p>3PA - 3 Pointers Attempted</p>
+                    <p>3P% - 3 Pointers Percentage</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse column_names" id="block3">
+                  <div class="card card-body">
+                    <p>2P - 2 Pointers (or Free Throws)</p>
+                    <p>2PA - 2 Pointers Attempted</p>
+                    <p>2P% - 2 Pointers Percentage</p>
+                    <p>FT - Free Throws</p>
+                    <p>FTA - Free Throws Attempted</p>
+                    <p>FT% - Free Throws Percentage</p>
+                    <p>ORB - Offensive Rebounds</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse column_names" id="block4">
+                  <div class="card card-body">
+                    <p>DRB - Defensive Rebounds</p>
+                    <p>AST - Assists</p>
+                    <p>STL - Steals</p>
+                    <p>BLK - Blocks</p>
+                    <p>TOV - Turnovers</p>
+                    <p>PF - Personal Fouls</p>
+                    <p>PTS - Average Points per Game</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+
+<!-- 2019 -->
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+
+          <h4><b> 2019</h4></b>
+          <div class="row">                                  
+<!-- East 2019 predictions -->
+            <div class="col-md-6">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2"></th>
+                    <th scope="col" colspan="2">Logistic</th>
+                    <th scope="col" colspan="2">Random Forests</th>
+                    <th scope="col" colspan="2">Support Vector Machine</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">2019 Actual</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>MIL</td>
+                    <td>MIL (.99)</td>
+                    <td>MIL (.99)</td>
+                    <td>MIL (1.0)</td>
+                    <td>MIL (.94)</td>
+                    <td>MIL (1.0)</td>
+                    <td>MIL (1.0)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>PHI</td>
+                    <td>TOR (.99)</td>
+                    <td>TOR (.98)</td>
+                    <td>PHI (1.0)</td>
+                    <td>PHI (.92)</td>
+                    <td>TOR (1.0)</td>
+                    <td>TOR (1.0)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>TOR</td>
+                    <td>PHI (.99)</td>
+                    <td>PHI (.94)</td>
+                    <td>TOR (.97)</td>
+                    <td>TOR (.90)</td>
+                    <td>PHI (.99)</td>
+                    <td>PHI (.99)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>BOS</td>
+                    <td>BOS (.99)</td>
+                    <td>BOS (.92)</td>
+                    <td>IND (.97)</td>
+                    <td>BOS (.90)</td>
+                    <td>BOS (.99)</td>
+                    <td>BOS (.99)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+<!-- West 2019 predictions -->                
+            <div class="col-md-6">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2"></th>
+                    <th scope="col" colspan="2">Logistic</th>
+                    <th scope="col" colspan="2">Random Forests</th>
+                    <th scope="col" colspan="2">Support Vector Machine</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">2019 Actual</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                    <th scope="col">GWL</th>
+                    <th scope="col">No GWL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>GSW</td>
+                    <td>GSW (.99)</td>
+                    <td>GSW (.96)</td>
+                    <td>GSW (1.0)</td>
+                    <td>GSW (.99)</td>
+                    <td>GSW (.99)</td>
+                    <td>GSW (.99)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>LAC</td>
+                    <td>TOR (.99)</td>
+                    <td>TOR (.98)</td>
+                    <td>PHI (1.0)</td>
+                    <td>PHI (.92)</td>
+                    <td>TOR (1.0)</td>
+                    <td>TOR (1.0)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>POR</td>
+                    <td>PHI (.99)</td>
+                    <td>PHI (.94)</td>
+                    <td>TOR (.97)</td>
+                    <td>TOR (.90)</td>
+                    <td>PHI (.99)</td>
+                    <td>PHI (.99)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>OKC</td>
+                    <td>BOS (.99)</td>
+                    <td>BOS (.92)</td>
+                    <td>IND (.97)</td>
+                    <td>BOS (.90)</td>
+                    <td>BOS (.99)</td>
+                    <td>BOS (.99)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+                  
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".teams-collapse" aria-expanded="false" aria-controls="west_teams east_teams">Teams Names</button>
+            </p>
+            <div class="row">
+              <div class="col">
+                <div class="collapse teams-collapse" id="west_teams">
+                  <div class="card card-body">
+                    <p>DAL - Dallas Mavericks</p>
+                    <p>DEN - Denver Nuggets</p>
+                    <p>GSW - Golden State Warriors</p>
+                    <p>HOU - Houston Rockets</p>
+                    <p>LAC - Los Angeles Clippers</p>
+                    <p>LAL - Los Angeles Lakers</p>
+                    <p>MEM - Memphis Grizzlies</p>
+                    <p>MIN - Minnesota Timberwolves</p>
+                    <p>NOP - New Orleans Pelicans</p>
+                    <p>OKC - Oklahoma City Thunder</p>
+                    <p>PHX - Phoenix Suns</p>
+                    <p>POR - Portland Trail Blazers</p>
+                    <p>SAC - Sacramento Kings</p>
+                    <p>SAS - San Antonio Spurs</p>
+                    <p>UTA - Utah Jazz</p>
+                  </div>
+                </div>
+              </div>  
+              <div class="col">  
+                <div class="collapse teams-collapse" id="east_teams">
+                  <div class="card card-body">
+                    <p>ATL - Atlanta Hawks</p>
+                    <p>BKN - Brooklyn Nets</p>
+                    <p>BOS - Boston Celtics</p>
+                    <p>CHA - Charlotte Hornets</p>
+                    <p>CHI - Chicago Bulls</p>
+                    <p>CLE - Cleveland Cavaliers</p>
+                    <p>DET - Detroit Pistons</p>
+                    <p>IND - Indiana Pacers</p>
+                    <p>MIA - Miami Heat</p>
+                    <p>MIL - Milwaukee Bucks</p>
+                    <p>NYK - New York Knicks</p>
+                    <p>ORL - Orlando Magic</p>
+                    <p>PHI - Philadelphia 76ers</p>
+                    <p>TOR - Toronto Raptors</p>
+                    <p>WAS - Washington Wizards</p>
+                  </div>
+                </div>
+              </div>
+            </div> 
+        </div>
+        <div class="col-md-1"> 
+        </div>
+      </div>        
+
+<!-- Missing block for 2020 -->  
+
+<!-- Final text -->  
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <h4><b> What does the model say about 2019 season data?</h4></b>
+              <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+              </p>
+          <h4><b> What is the “better model”?</h4></b>
+              <p>For our final project, we decided to predict the teams that would have made it do the playoffs in the current season 2019-2020. We used historical data since 1979 to base our predicition.
+              </p>
+          <h4><b> If we would have more time, we would like to:</h4></b>
+              <ul>
+                  <li>Model by decade/rule changes to see which features are the most important (observe changes in the game)</li>
+                  <li>Models to predict championships from playoff data</li>
+                  <li>East/West differences</li>
+                  <li>Offensive and defensive differences in importance</li>
+              </ul>
+        </div>
+        <div class="col-md-1"> 
+        </div>
+      </div>  
 
         
 
 
-
+    </body>
         
     <footer style = "text-align: center">
         <p> <b>Contributors: </b> <br>
@@ -584,4 +621,5 @@
         Heain Yee <a href="https://www.linkedin.com/in/heain-yee-82105818/" target="_blank">(LinkedIn)</a> <a href="https://github.com/hanesy" target="_blank">(GitHub)</a> <br>
         </p>
     </footer>
+
 </html>
