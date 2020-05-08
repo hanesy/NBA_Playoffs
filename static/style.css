@@ -3,29 +3,45 @@
     color: white;
 }
 
-.panel-title {
-    color: black
-}
-
 .row {
     padding: 10px;
 }
 
-.col-md-10 {
-    border-bottom: groove;
-    border-width: 2px;
+h4 {
+    color: rgb(0, 0, 0);
+    font-family: Impact, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    padding: 0px;
+    overflow: hidden; 
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(0, 0, 0);
 }
 
-.btn {
-    background-color: #17408B;
-    color: white;
-    margin-left: auto;
-    margin-right: auto;
+.west{
+    color: red;
+    text-align: center;
+    border: solid;
+    border-width: 2px;
+    padding: 5px
+}
+
+.east {
+    color: #17408B;
+    text-align: center;
+    border: solid;
+    border-width: 2px;
+    padding: 5px
 }
 
 #division_map {
     position:relative;
-    width: 200%;
+    width: 300%;
     z-index:0;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,5 +60,10 @@ table {
     text-align: center;
 }
 
+footer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
