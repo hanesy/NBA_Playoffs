@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-4 text-center">
             <br>
-            <h1 class=title>Playoffs Predictions</h1></div>
+            <h1 class=title>Predicting NBA Playoffs <br>(1980-2020)</h1></div>
             <br>
         <div class="col-md-4 text-center">
             <img src="Images/nba_no_background.png" alt="NBA_logo" style="height:100px">
@@ -42,10 +42,10 @@
           <h4><b> Introduction </h4></b>
             <br>
             <div class="row">
-              <div class="col-sm-4 col-md-4">
+              <div class="col-sm-4 col-md-5">
                 <img id= "division_map" src="Images/nba_division_map.jpg" class="img-fluid" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/" >
               </div>  
-              <div class="col-sm-8 col-md-8">
+              <div class="col-sm-8 col-md-7">
                 <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since the 1980 playoffs to base our prediction.</p>
                 <p>Every regular season, there are 30 teams divided into two conferences: Western and Eastern. Each team plays 82 games per season - 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
                 <p>We decided to compare the results of 3 different models to do our predictions, and see which model would be the most accurate.</p>
@@ -63,8 +63,7 @@
         </div>
         <div class="col-md-10">   
           <h4><b> NBA History </h4></b>
-            <b><p>Why we chose 1979:</p></b>
-                
+            <b><p>Why we chose 1980 - major change in the gameplay </b></p>    
               <p>Starting in the 1979-80 NBA season the 3-point line was implemented with the intention of increasing the chances for shorter players to earn more points and to expand defense away from the basket.</p>
               <img id= "timeline" src="Images/NBA_timeline.png" alt="NBA rules timeline">
               <br>
@@ -79,7 +78,7 @@
         </div>
         <div class="col-md-10"> 
           <h4><b> Source Data </h4></b>
-            <p>To build our models we wanted to be able to pull as much data as possible to optimize machine learning. After reviewing various NBA data sites, we chose <a href="https://www.basketball-reference.com/" target="_blank">https://www.basketball-reference.com/</a></p>
+            <p>To build our models, we wanted to be able to pull as much data as possible to optimize machine learning. After reviewing various NBA data sites, we chose <a href="https://www.basketball-reference.com/" target="_blank">https://www.basketball-reference.com/</a>.</p>
             <p>Reasoning:</p>
               <ul>
                 <li>Most robust data tables</li>
@@ -107,7 +106,8 @@
           <h4><b> Building the Models</h4></b>
           <p>We developed three different types of models, Logistic Regression, Random Forest, and Support Vector Machine (SVM).</p>
               <b>Data Preprocessing</b>
-              <p>Each performance statistic of the regular season data was scaled using a quantile transformer by year (all columns except RK, Team, Year, Games, and Conference) and normalized. This transformed the data so the performance statistic was comparable for each season. We used two variations of game wins - count of wins and losses versus win rate.</p>
+              <p>Each performance statistic of the regular season data was scaled using a quantile transformer by each year (all columns except RK, Team, Year, Games, and Conference) and normalized. This transformed the data so the performance statistic was comparable for each season. </p>
+              <p> We used two variations of game wins - count of wins and losses versus win rate.</p>
 
               <b>Training and Testing</b>
               <p>We split the regular season data by Eastern and Western conferences. From the split data, 1980 to 2018 was used to train the model. We tested the trained models against the 2019 season. Finally, we predicted 2020 playoff teams based on the statistics from the incomplete season.</p>
@@ -123,14 +123,15 @@
         </div>
       </div>
 
-<!-- Model Scores [MISSING] update tables -->
+<!-- Model Scores update tables -->
 
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
           <h4><b>Model Scores</h4></b>
-            <p>Each model was run with all available features [“W”], and then without the “Wins” or “Losses” column [“No WL”].  We found that including the Wins and Losses column improved both Training and Testing scores for the Logistic and SVM model in both East and West, but actually decreased the Random Forest East Test score by 6.6%.</p>
+            <p>Each model was run with all performance statistics, but with varied structure for game wins. Each model was trained twice with the scaled and and normalized data, then with the count of game wins and losses, and once with the % of wins. </p>
+            <p> We found that using the scaled and normalized count of wins and losses generally improved the model scores.</p>
             <div class="row">                    
               <!-- West Scores [MISSING] update table -->
               <div class="col-md-6">
@@ -145,32 +146,32 @@
                     </tr>
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">Train</th>
-                      <td>.927</td>
-                      <td>.907</td>
+                      <td>0.927</td>
+                      <td>0.910</td>
                       <td>1.000</td>
                       <td>1.000</td>
-                      <td>.935</td>
-                      <td>.927</td>
+                      <td>0.933</td>
+                      <td>0.927</td>
                     </tr>
                     <tr>
                       <th scope="row">Test</th>
+                      <td>0.933</td>
+                      <td>0.933</td>
                       <td>1.000</td>
-                      <td>.867</td>
                       <td>1.000</td>
-                      <td>1.000</td>
-                      <td>.933</td>
-                      <td>.800</td>
+                      <td>0.933</td>
+                      <td>0.867</td>
                     </tr>
                   </tbody>
                 </table>
@@ -187,33 +188,33 @@
                       <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
-                      <th scope="col">EAST</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col"></th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">Train</th>
-                      <td>.940</td>
-                      <td>.888</td>
-                      <td>.998</td>
+                      <td>0.910</td>
+                      <td>0.888</td>
                       <td>1.000</td>
-                      <td>.942</td>
-                      <td>.911</td>
+                      <td>1.000</td>
+                      <td>0.926</td>
+                      <td>0.913</td>
                     </tr>
                     <tr>
                       <th scope="row">Test</th>
-                      <td>.933</td>
-                      <td>.867</td>
-                      <td>.866</td>
-                      <td>.867</td>
-                      <td>.933</td>
-                      <td>.867</td>
+                      <td>0.933</td>
+                      <td>0.867</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
                     </tr>
                   </tbody>
                 </table>
@@ -224,15 +225,22 @@
         </div>
       </div>
 
-<!-- Features Importance [MISSING] update tables -->
+<!-- Features Importance update tables -->
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
           <h4><b> Feature Importance</h4></b>
-            <p>When looking at how important each feature is to the model, the first thing we notice is that when W% is included, it is the most important feature.  When it’s not included, all the models are inconsistent between each other and within East/West.  Features like Steals (STLs), FT% (Free Throw %) and TOV (Turnovers) are common amongst many of the models, but there’s no one feature that tops the WL list every time.</p>
+            <p>Game outcomes (whether wins, losses, or w%) is the most important feature of all the models.</p>
+            <ul>
+              <li>Defensive rebounds (DRB) is an important feature for almost all models, for both conferences.</li>
+              <li>Steals (STL) and turnovers (TOV) are important features for the logistic and SVM models, for both conferences.</li>
+              <li>2-pointers percentage (2P%) and field goals percentage (FG%) are important features for the random forest models, for both conferences.</li> 
+              <li>2-pointer attempted (2PA) is an important factor negatively correlated with outcomes for all models in the Eastern conference.</li> 
+              <li>Free throws attempted (FTA) is an important factor positively correlated with outcomes with the svm model in the Western conference.</li>    
+            </ul>    
             <div class="row">                    
-      <!-- West Feature Importances [MISSING] update table -->
+      <!-- West Feature Importances update table -->
               <div class="col-md-6">
                 <h5 class="west">Western Conference</h5>
                 <table class="table">
@@ -244,60 +252,60 @@
                       <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
-                      <th scope="col"></th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">Order</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td>
-                        <p>STL (+)</p>
-                        <p>ORB (-)</p>
-                        <p>AST (+)</p>
-                        <p>PTS (-)</p>
-                        <p>2P (+)</p>
-                      </td>
-                      <td>
-                        <p>W% (+)</p>
-                        <p>STL (+)</p>
-                        <p>TOV (-)</p>
-                        <p>DRB (+)</p>
-                        <p>FG% (+)</p>
-                      </td>
-                      <td>
-                        <p>W%</p>
-                        <p>L</p>
-                        <p>W</p>
-                        <p>2P%</p>
-                        <p>AST</p>
-                      </td>
-                      <td>
-                        <p>W%</p>
-                        <p>2P%</p>
-                        <p>FG%</p>
-                        <p>DRB</p>
-                        <p>AST</p>
-                      </td>
-                      <td>
-                        <p>STL (+)</p>
-                        <p>PTS (-)</p>
-                        <p>ORB (-)</p>
-                        <p>AST (+)</p>
-                        <p>3PA (+)</p>
-                      </td>
-                      <td>
-                        <p>W% (+)</p>
-                        <p>STL (+)</p>
-                        <p>TOV (-)</p>
-                        <p>DRB (+)</p>
-                        <p>FTA (+)</p>
-                      </td>
+                      <th scope="row">1</th>
+                      <td>L (-)</td>
+                      <td>W% (+)</td>
+                      <td>W</td>
+                      <td>W%</td>
+                      <td>L (-)</td>
+                      <td>W%(+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>W (+)</td>
+                      <td>TOV (-)</td>
+                      <td>L</td>
+                      <td>2P%</td>
+                      <td>W (+)</td>
+                      <td>STL (+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>STL (+)</td>
+                      <td>STL (+)</td>
+                      <td>2P%</td>
+                      <td>FG%</td>
+                      <td>STL (+)</td>
+                      <td>DRB (+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>TOV (-)</td>
+                      <td>DRB (+)</td>
+                      <td>FG%</td>
+                      <td>DRB</td>
+                      <td>TOV (-)</td>
+                      <td>TOV (-)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>DRB (+)</td>
+                      <td>FG% (+)</td>
+                      <td>DRB</td>
+                      <td>AST</td>
+                      <td>FTA (+)</td>
+                      <td>FTA (+)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -315,60 +323,60 @@
                       <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
-                      <th scope="col"></th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">Order</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td>
-                        <p>STL (+)</p>
-                        <p>ORB (-)</p>
-                        <p>AST (+)</p>
-                        <p>PTS (-)</p>
-                        <p>2P (+)</p>
-                      </td>
-                      <td>
-                        <p>W% (+)</p>
-                        <p>STL (+)</p>
-                        <p>TOV (-)</p>
-                        <p>DRB (+)</p>
-                        <p>FG% (+)</p>
-                      </td>
-                      <td>
-                        <p>W%</p>
-                        <p>L</p>
-                        <p>W</p>
-                        <p>2P%</p>
-                        <p>AST</p>
-                      </td>
-                      <td>
-                        <p>W%</p>
-                        <p>2P%</p>
-                        <p>FG%</p>
-                        <p>DRB</p>
-                        <p>AST</p>
-                      </td>
-                      <td>
-                        <p>STL (+)</p>
-                        <p>PTS (-)</p>
-                        <p>ORB (-)</p>
-                        <p>AST (+)</p>
-                        <p>3PA (+)</p>
-                      </td>
-                      <td>
-                        <p>W% (+)</p>
-                        <p>STL (+)</p>
-                        <p>TOV (-)</p>
-                        <p>DRB (+)</p>
-                        <p>FTA (+)</p>
-                      </td>
+                      <th scope="row">1</th>
+                      <td>L (-)</td>
+                      <td>W% (+)</td>
+                      <td>L</td>
+                      <td>W%</td>
+                      <td>L (-)</td>
+                      <td>W% (+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>W (+)</td>
+                      <td>DRB (+)</td>
+                      <td>W</td>
+                      <td>2P%</td>
+                      <td>W (+)</td>
+                      <td>2PA (-)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>DRB(+)</td>
+                      <td>2PA (-)</td>
+                      <td>2P%</td>
+                      <td>FG%</td>
+                      <td>2PA(-)</td>
+                      <td>DRB (+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>2PA (-)</td>
+                      <td>TOV (-)</td>
+                      <td>FG%</td>
+                      <td>DRB</td>
+                      <td>DRB (+)</td>
+                      <td>STL (+)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>TOV (-)</td>
+                      <td>STL (+)</td>
+                      <td>DRB</td>
+                      <td>2PA</td>
+                      <td>ORB (+)</td>
+                      <td>ORB (+)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -444,7 +452,9 @@
         </div>
         <div class="col-md-10">
           <h4><b> 2019 Predictions</h4></b>
-            <p>We took our models and predicted the playoff teams for the 2019 season.  Both the West and East models predicted more than eight teams would make the playoffs more often than not.  The East models were better at predicting the top half of the rankings than the West, but the West models predicted exactly 8 playoff teams more than the East.</p>
+            <p>The model predictions for the 2019 season showed that the Eastern Conference models were better at predicting the teams more precisely than the Western Conference models. </p>
+            <p><b>Teams with higher than .5 probability are listed below in descending order. If there were fewer than 8 teams that meet this criteria, the team with the next highest probability was listed until 8 teams were selected. </b></p>
+            <p style="color:red">Red indicates false predictions.</p>
             <div class="row">                                  
         <!-- West 2019 predictions -->                
               <div class="col-md-6">
@@ -460,54 +470,114 @@
                     <tr>
                       <th scope="col">Rank</th>
                       <th scope="col">2019 Actual</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
                       <td>GSW</td>
+                      <td>DEN (.98)</td>
+                      <td>DEN (.95)</td>
+                      <td>DEN (.99)</td>
                       <td>GSW (.99)</td>
-                      <td>GSW (.96)</td>
-                      <td>GSW (1.0)</td>
-                      <td>GSW (.99)</td>
-                      <td>GSW (.99)</td>
-                      <td>GSW (.99)</td>
+                      <td>DEN (.99)</td>
+                      <td>DEN (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
-                      <td>LAC</td>
-                      <td>TOR (.99)</td>
-                      <td>TOR (.98)</td>
-                      <td>PHI (1.0)</td>
-                      <td>PHI (.92)</td>
-                      <td>TOR (1.0)</td>
-                      <td>TOR (1.0)</td>
+                      <td>DEN</td>
+                      <td>GSW (.95)</td>
+                      <td>GSW (.95)</td>
+                      <td>GSW (.98)</td>
+                      <td>UTA (.93)</td>
+                      <td>POR (.99)</td>
+                      <td>POR (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
                       <td>POR</td>
-                      <td>PHI (.99)</td>
-                      <td>PHI (.94)</td>
-                      <td>TOR (.97)</td>
-                      <td>TOR (.90)</td>
-                      <td>PHI (.99)</td>
-                      <td>PHI (.99)</td>
+                      <td>UTA (.95)</td>
+                      <td>UTA (.94)</td>
+                      <td>UTA (.95)</td>
+                      <td>DEN (.90)</td>
+                      <td>UTA (.99)</td>
+                      <td>UTA (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">4</th>
+                      <td>HOU</td>
+                      <td>POR (.95)</td>
+                      <td>POR (.91)</td>
+                      <td>HOU (.94)</td>
+                      <td>OKC (.86)</td>
+                      <td>GSW (.99)</td>
+                      <td>GSW (.99)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>UTA</td>
+                      <td>OKC (.81)</td>
+                      <td>OKC (.79)</td>
+                      <td>POR (.89)</td>
+                      <td>POR (.85)</td>
+                      <td>OKC (.93)</td>
+                      <td>OKC (.95)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
                       <td>OKC</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.92)</td>
-                      <td>IND (.97)</td>
-                      <td>BOS (.90)</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.99)</td>
+                      <td>LAC (.74)</td>
+                      <td>LAC (.72)</td>
+                      <td>OKC (.89)</td>
+                      <td>HOU (.84)</td>
+                      <td>HOU (.82)</td>
+                      <td>LAC (.80)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>SAS</td>
+                      <td>SAS (.71)</td>
+                      <td>SAS (.72)</td>
+                      <td>SAS (.86)</td>
+                      <td>LAC (.80)</td>
+                      <td>LAC (.78)</td>
+                      <td>HOU (.77)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>LAC</td>
+                      <td>HOU (.71)</td>
+                      <td>HOU (.66)</td>
+                      <td>LAC (.85)</td>
+                      <td>SAS (.80)</td>
+                      <td>SAS (.69)</td>
+                      <td>SAS (.74)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      <td> </td>
+                      <td><article style="color:red">NOP (.53)</article></td>
+                      <td><article style="color:red">NOP (.62)</article></td>
+                      <td> </td>
+                      <td> </td>
+                      <td><article style="color:red">SAC (.52)</article></td>
+                      <td><article style="color:red">SAC (.51)</article></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td><article style="color:red">NOP (.50)</article></td>
                     </tr>
                   </tbody>
                 </table>
@@ -526,54 +596,94 @@
                     <tr>
                       <th scope="col">Rank</th>
                       <th scope="col">2019 Actual</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
                       <td>MIL</td>
+                      <td>TOR (.99)</td>
                       <td>MIL (.99)</td>
-                      <td>MIL (.99)</td>
-                      <td>MIL (1.0)</td>
-                      <td>MIL (.94)</td>
                       <td>MIL (1.0)</td>
                       <td>MIL (1.0)</td>
+                      <td>TOR (1.0)</td>
+                      <td>TOR (1.0)</td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
-                      <td>PHI</td>
+                      <td>TOR</td>
+                      <td>MIL (.99)</td>
                       <td>TOR (.99)</td>
-                      <td>TOR (.98)</td>
-                      <td>PHI (1.0)</td>
-                      <td>PHI (.92)</td>
-                      <td>TOR (1.0)</td>
-                      <td>TOR (1.0)</td>
+                      <td>TOR (.99)</td>
+                      <td>PHI (.96)</td>
+                      <td>MIL (1.0)</td>
+                      <td>MIL (1.0)</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
-                      <td>TOR</td>
-                      <td>PHI (.99)</td>
-                      <td>PHI (.94)</td>
-                      <td>TOR (.97)</td>
-                      <td>TOR (.90)</td>
+                      <td>PHI</td>
+                      <td>PHI (.98)</td>
+                      <td>PHI (.97)</td>
+                      <td>PHI (.98)</td>
+                      <td>TOR (.95)</td>
                       <td>PHI (.99)</td>
                       <td>PHI (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">4</th>
                       <td>BOS</td>
+                      <td>BOS (.96)</td>
+                      <td>BOS (.94)</td>
+                      <td>BOS (.96)</td>
+                      <td>BOS (.93)</td>
                       <td>BOS (.99)</td>
-                      <td>BOS (.92)</td>
-                      <td>IND (.97)</td>
-                      <td>BOS (.90)</td>
                       <td>BOS (.99)</td>
-                      <td>BOS (.99)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>IND</td>
+                      <td>IND (.75)</td>
+                      <td>IND (.74)</td>
+                      <td>IND (.93)</td>
+                      <td>IND (.93)</td>
+                      <td>IND (.85)</td>
+                      <td>IND (.84)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>BKN</td>
+                      <td>ORL (.68)</td>
+                      <td>ORL (.65)</td>
+                      <td>ORL (.90)</td>
+                      <td>BKN (.84)</td>
+                      <td>BKN (.85)</td>
+                      <td>ORL (.75)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>ORL</td>
+                      <td>BKN (.65)</td>
+                      <td>BKN (.60)</td>
+                      <td>BKN (.88)</td>
+                      <td>ORL (.84)</td>
+                      <td>ORL (.80)</td>
+                      <td>BKN (.74)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>DET</td>
+                      <td><article style="color:red">CHA (.49)</article></td>
+                      <td><article style="color:red">CHA (.52)</article></td>
+                      <td>DET (.80)</td>
+                      <td>DET (.82)</td>
+                      <td>DET (.67)</td>
+                      <td>DET (.50)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -641,7 +751,14 @@
         </div>
         <div class="col-md-10">
           <h4><b> 2020 Predictions </h4></b>
-            <p>Given that only four teams had clinched a playoff spot before the season was cancelled, there is no ground truth for this set of predictions.  However, we still thought it would be interesting to see what could have been.  On the Eastern side of things, four of the models predicted fewer than 8 teams would make the playoffs (percentages below 0.5), while on the Western side, three models predicted more than 8 teams.</p>
+            <p>Given that only four teams had clinched a playoff spot before the season was cancelled, there is no ground truth for this set of predictions. However, we thought it would be interesting to see what could have been. </p>
+            <ul>
+              <li>Western conference models predicted more than 8 teams, but the top 8 predicted by the models were the same.</li>
+              <li>Eastern conference models predicted the same 8 teams would make the playoffs.</li>
+            </ul>
+           
+            <p><b>The teams with higher than .5 probability are listed below in descending order. </b></p>
+            <p>* indicates teams that have made it to the playoffs.</p>
             <div class="row">                                  
         <!-- West 2020 predictions -->                
               <div class="col-md-6">
@@ -656,55 +773,115 @@
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
-                      <th scope="col">2019 Actual</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">2020 (partial)</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>GSW</td>
-                      <td>GSW (.99)</td>
-                      <td>GSW (.96)</td>
-                      <td>GSW (1.0)</td>
-                      <td>GSW (.99)</td>
-                      <td>GSW (.99)</td>
-                      <td>GSW (.99)</td>
+                      <td>LAL*</td>
+                      <td>LAL (.98)</td>
+                      <td>LAL (.97)</td>
+                      <td>LAL (.99)</td>
+                      <td>LAL (.97)</td>
+                      <td>LAL (.99)</td>
+                      <td>LAL (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
                       <td>LAC</td>
-                      <td>TOR (.99)</td>
-                      <td>TOR (.98)</td>
-                      <td>PHI (1.0)</td>
-                      <td>PHI (.92)</td>
-                      <td>TOR (1.0)</td>
-                      <td>TOR (1.0)</td>
+                      <td>DEN (.98)</td>
+                      <td>DEN (.95)</td>
+                      <td>DEN (.98)</td>
+                      <td>LAC (.95)</td>
+                      <td>DEN (.99)</td>
+                      <td>DEN (.99)</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
-                      <td>POR</td>
-                      <td>PHI (.99)</td>
-                      <td>PHI (.94)</td>
-                      <td>TOR (.97)</td>
-                      <td>TOR (.90)</td>
-                      <td>PHI (.99)</td>
-                      <td>PHI (.99)</td>
+                      <td>DEN</td>
+                      <td>LAC (.92)</td>
+                      <td>LAC (.89)</td>
+                      <td>LAC (.97)</td>
+                      <td>DEN (.94)</td>
+                      <td>LAC (.98)</td>
+                      <td>LAC (.98)</td>
                     </tr>
                     <tr>
                       <th scope="row">4</th>
+                      <td>UTA</td>
+                      <td>OKC (.87)</td>
+                      <td>SAS (.87)</td>
+                      <td>OKC (.97)</td>
+                      <td>DAL (.92)</td>
+                      <td>OKC (.98)</td>
+                      <td>OKC (.96)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
                       <td>OKC</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.92)</td>
-                      <td>IND (.97)</td>
-                      <td>BOS (.90)</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.99)</td>
+                      <td>SAS (.83)</td>
+                      <td>OKC (.83)</td>
+                      <td>UTA (.96)</td>
+                      <td>MEM (.91)</td>
+                      <td>SAS (.87)</td>
+                      <td>SAS (.93)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>HOU</td>
+                      <td>DAL (.82)</td>
+                      <td>DAL (.81)</td>
+                      <td>DAL (.90)</td>
+                      <td>UTA (.89)</td>
+                      <td>DAL (.85)</td>
+                      <td>DAL (.84)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>DAL</td>
+                      <td>HOU (.71)</td>
+                      <td>HOU (.69)</td>
+                      <td>MEM (.90)</td>
+                      <td>OKC (.89)</td>
+                      <td>MEM (.80)</td>
+                      <td>HOU (.79)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>MEM</td>
+                      <td>MEM (.70)</td>
+                      <td>MEM (.67)</td>
+                      <td>HOU (.89)</td>
+                      <td>HOU (.86)</td>
+                      <td>HOU (.79)</td>
+                      <td>MEM (.77)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      <td>POR</td>
+                      <td>PHX (.59)</td>
+                      <td>PHX (.62)</td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      <td>NOP</td>
+                      <td>UTA (.50)</td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
+                      <td> </td>
                     </tr>
                   </tbody>
                 </table>
@@ -722,55 +899,95 @@
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
-                      <th scope="col">2019 Actual</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
-                      <th scope="col">GWL</th>
-                      <th scope="col">No GWL</th>
+                      <th scope="col">2020 (partial)</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
+                      <th scope="col">WL</th>
+                      <th scope="col">W%</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>MIL</td>
+                      <td>MIL*</td>
                       <td>MIL (.99)</td>
                       <td>MIL (.99)</td>
-                      <td>MIL (1.0)</td>
-                      <td>MIL (.94)</td>
-                      <td>MIL (1.0)</td>
-                      <td>MIL (1.0)</td>
+                      <td>PHI (1.0)</td>
+                      <td>MIL (.98)</td>
+                      <td>TOR (1.0)</td>
+                      <td>TOR (1.0)</td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
-                      <td>PHI</td>
+                      <td>BOS*</td>
                       <td>TOR (.99)</td>
-                      <td>TOR (.98)</td>
-                      <td>PHI (1.0)</td>
-                      <td>PHI (.92)</td>
-                      <td>TOR (1.0)</td>
-                      <td>TOR (1.0)</td>
+                      <td>TOR (.99)</td>
+                      <td>TOR (.99)</td>
+                      <td>MIA (.95)</td>
+                      <td>BOS (1.0)</td>
+                      <td>MIL (1.0)</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
-                      <td>TOR</td>
-                      <td>PHI (.99)</td>
+                      <td>TOR*</td>
+                      <td>BOS (.99)</td>
+                      <td>BOS (.99)</td>
+                      <td>MIL (.98)</td>
+                      <td>TOR (.93)</td>
+                      <td>MIL (1.0)</td>
+                      <td>BOS (1.0)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>MIA</td>
+                      <td>PHI (.95)</td>
                       <td>PHI (.94)</td>
-                      <td>TOR (.97)</td>
-                      <td>TOR (.90)</td>
+                      <td>MIA (.98)</td>
+                      <td>PHI (.92)</td>
                       <td>PHI (.99)</td>
                       <td>PHI (.99)</td>
                     </tr>
                     <tr>
-                      <th scope="row">4</th>
-                      <td>BOS</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.92)</td>
-                      <td>IND (.97)</td>
-                      <td>BOS (.90)</td>
-                      <td>BOS (.99)</td>
-                      <td>BOS (.99)</td>
+                      <th scope="row">5</th>
+                      <td>IND</td>
+                      <td>MIA (.65)</td>
+                      <td>MIA (.89)</td>
+                      <td>BOS (.97)</td>
+                      <td>BOS (.89)</td>
+                      <td>MIA (.99)</td>
+                      <td>MIA (.98)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>PHI</td>
+                      <td>ORL (.64)</td>
+                      <td>ORL (.67)</td>
+                      <td>IND (.94)</td>
+                      <td>IND (.88)</td>
+                      <td>BKN (.84)</td>
+                      <td>BKN (.78)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>BKN</td>
+                      <td>BKN (.64)</td>
+                      <td>BKN (.63)</td>
+                      <td>ORL (.92)</td>
+                      <td>ORL (.86)</td>
+                      <td>IND (.74)</td>
+                      <td>IND (.70)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>ORL</td>
+                      <td>IND (.64)</td>
+                      <td>IND (.60)</td>
+                      <td>BKN (.86)</td>
+                      <td>BKN (.80)</td>
+                      <td>ORL (.70)</td>
+                      <td>ORL (.68)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -859,6 +1076,17 @@
         </div>
       </div>  
 
+<!-- Conclusion  -->  
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <h4><b> Conclusion</h4></b>
+      <p></p>
+  </div>
+  <div class="col-md-1"> 
+  </div>
+</div>  
 
     </body>
         
