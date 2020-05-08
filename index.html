@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>NBA Playoffs Predictions</title>
+        <title>Predicting NBA Playoffs (1980-2020)</title>
 
         <!-- bootstrap stylesheets and jquery imkports and etc -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,9 +46,10 @@
                 <img id= "division_map" src="Images/nba_division_map.jpg" class="img-fluid" alt="NBA_logo https://shesasportsfan.wordpress.com/2012/04/23/nba-standings-101/" >
               </div>  
               <div class="col-sm-8 col-md-8">
-                <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since 1979 to base our prediction.</p>
-                <p>Every regular season, there are 30 teams divided into two conferences: west and east. Each team plays 82 games per season, being 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
-                <p>We decided to compare the results of 3 different models to do our predictions, so that we could decide which model would be the most accurate, based on our historical data.</p>
+                <p>For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since the 1980 playoffs to base our prediction.</p>
+                <p>Every regular season, there are 30 teams divided into two conferences: Western and Eastern. Each team plays 82 games per season - 41 home and 41 away. At the end of the regular season, the eight teams with the most wins in each conference qualify for the playoffs.</p>
+                <p>We decided to compare the results of 3 different models to do our predictions, and see which model would be the most accurate.</p>
+                <p>Link: <a href="https://github.com/hanesy/NBA_Playoffs" target="_blank">Project Repository</a></p>
               </div>
             </div>
         </div>
@@ -92,55 +93,55 @@
                 <li>Team Per Game Stats – Collect all other per-game average statistics</li>    
               </ul>          
             <p>This data was then written into a CSV file for Machine Learning analysis.</p>
+            <p>Link: <a href="https://github.com/hanesy/NBA_Playoffs/blob/master/NBA_Scrape.ipynb" target="_blank">Scrape</a>, <a href="https://github.com/hanesy/NBA_Playoffs/tree/master/NBA_data" target="_blank">Data</a></p>
         </div>
         <div class="col-md-1">
         </div>
       </div>
 
-<!-- Data Preprocessing -->
+<!-- Builing the Models -->
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10"> 
-          <h4><b> Data pre-processing</h4></b>
-              <p>Each performance statistic of the regular season data was scaled using a quantile transformer by year (all columns except RK, Team, Year, G, W, L, and Conf) and normalized. This transformed the data so the performance statistic was comparable for each season.</p>
+          <h4><b> Building the Models</h4></b>
+          <p>We developed three different types of models, Logistic Regression, Random Forest, and Support Vector Machine (SVM).</p>
+              <b>Data Preprocessing</b>
+              <p>Each performance statistic of the regular season data was scaled using a quantile transformer by year (all columns except RK, Team, Year, Games, and Conference) and normalized. This transformed the data so the performance statistic was comparable for each season. We used two variations of game wins - count of wins and losses versus win rate.</p>
+
+              <b>Training and Testing</b>
+              <p>We split the regular season data by Eastern and Western conferences. From the split data, 1980 to 2018 was used to train the model. We tested the trained models against the 2019 season. Finally, we predicted 2020 playoff teams based on the statistics from the incomplete season.</p>
+
+              <p>Link: <a href="https://github.com/hanesy/NBA_Playoffs/blob/master/Preprocessing%20(with%20WL).ipynb" target="_blank">Preprocessing (WL) </a>, 
+                <a href="https://github.com/hanesy/NBA_Playoffs/blob/master/Preprocessing%20(W%25).ipynb" target="_blank">Preprocessing (W%) </a>, 
+                <a href="https://github.com/hanesy/NBA_Playoffs/blob/master/Final%20Models%20(with%20WL).ipynb" target="_blank">Train/Test Models (WL) </a>, 
+                <a href="https://github.com/hanesy/NBA_Playoffs/blob/master/Final%20Models%20(W%25).ipynb" target="_blank">Train/Test Models (W%) </a>, 
+                <a href="https://github.com/hanesy/NBA_Playoffs/tree/master/models" target="_blank">Saved Models </a> 
+              </p>
         </div>
         <div class="col-md-1">
         </div>
       </div>
 
-<!-- Training Testing and Predicting -->
-      <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10"> 
-          <h4><b> Training, Testing, and Predicting</h4></b>
-              <p>We developed three different types of models, Logistic Regression, Random Forest, and Support Vector Machine (SVM).</p>
-              <p>For training the data, we split the regular season data by East and West conferences. From the split data, 1980 to 2018 was used to train. We tested the trained models against the 2019 season. Finally, we predicted 2020 playoff teams based on the statistics from the incomplete season.</p>
-        </div>
-        <div class="col-md-1">
-        </div>
-      </div>
-
-<!-- Scores [MISSING] update tables -->
+<!-- Model Scores [MISSING] update tables -->
 
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
-          <h4><b> Scores</h4></b>
+          <h4><b>Model Scores</h4></b>
             <p>Each model was run with all available features [“W”], and then without the “Wins” or “Losses” column [“No WL”].  We found that including the Wins and Losses column improved both Training and Testing scores for the Logistic and SVM model in both East and West, but actually decreased the Random Forest East Test score by 6.6%.</p>
             <div class="row">                    
               <!-- West Scores [MISSING] update table -->
               <div class="col-md-6">
-                <h5 class="west">West Conference</h5>
+                <h5 class="west">Western Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col"></th>
+                      <th scope="col"><img src="Images/nba-Western_Conference_logo.png" alt="Western_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
                       <th scope="col"></th>
@@ -154,7 +155,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">West-Train</th>
+                      <th scope="row">Train</th>
                       <td>.927</td>
                       <td>.907</td>
                       <td>1.000</td>
@@ -163,7 +164,7 @@
                       <td>.927</td>
                     </tr>
                     <tr>
-                      <th scope="row">West-Test</th>
+                      <th scope="row">Test</th>
                       <td>1.000</td>
                       <td>.867</td>
                       <td>1.000</td>
@@ -176,17 +177,17 @@
               </div>
               <!-- East Scores [MISSING] update table -->
               <div class="col-md-6">
-                <h5 class="east">East Conference</h5>
+                <h5 class="east">Eastern Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col"></th>
+                      <th scope="col"><img src="Images/nba-Eastern_Conference_logo.png" alt="Eastern_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
-                      <th scope="col"></th>
+                      <th scope="col">EAST</th>
                       <th scope="col">GWL</th>
                       <th scope="col">No GWL</th>
                       <th scope="col">GWL</th>
@@ -197,7 +198,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">East-Train</th>
+                      <th scope="row">Train</th>
                       <td>.940</td>
                       <td>.888</td>
                       <td>.998</td>
@@ -206,7 +207,7 @@
                       <td>.911</td>
                     </tr>
                     <tr>
-                      <th scope="row">East-Test</th>
+                      <th scope="row">Test</th>
                       <td>.933</td>
                       <td>.867</td>
                       <td>.866</td>
@@ -228,20 +229,22 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
-          <h4><b> Features importance</h4></b>
+          <h4><b> Feature Importance</h4></b>
             <p>When looking at how important each feature is to the model, the first thing we notice is that when W% is included, it is the most important feature.  When it’s not included, all the models are inconsistent between each other and within East/West.  Features like Steals (STLs), FT% (Free Throw %) and TOV (Turnovers) are common amongst many of the models, but there’s no one feature that tops the WL list every time.</p>
             <div class="row">                    
-      <!-- West Features Importances [MISSING] update table -->
+      <!-- West Feature Importances [MISSING] update table -->
               <div class="col-md-6">
-                <h5 class="west">West Conference</h5>
+                <h5 class="west">Western Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
+                      <th scope="col"><img src="Images/nba-Western_Conference_logo.png" alt="Western_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">GWL</th>
                       <th scope="col">No GWL</th>
                       <th scope="col">GWL</th>
@@ -252,6 +255,7 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td></td>
                       <td>
                         <p>STL (+)</p>
                         <p>ORB (-)</p>
@@ -301,15 +305,17 @@
 
       <!-- East Features Importances [MISSING] update table -->
               <div class="col-md-6">
-                <h5 class="east">East Conference</h5>
+                <h5 class="east">Eastern Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
+                      <th scope="col"><img src="Images/nba-Eastern_Conference_logo.png" alt="Eastern_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">GWL</th>
                       <th scope="col">No GWL</th>
                       <th scope="col">GWL</th>
@@ -320,47 +326,48 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td></td>
                       <td>
-                        <p>FT% (+)</p>
-                        <p>3P% (-)</p>
-                        <p>PF (+)</p>
-                        <p>2P (-)</p>
-                        <p>2PA (-)</p>
+                        <p>STL (+)</p>
+                        <p>ORB (-)</p>
+                        <p>AST (+)</p>
+                        <p>PTS (-)</p>
+                        <p>2P (+)</p>
                       </td>
                       <td>
                         <p>W% (+)</p>
-                        <p>DRB (+)</p>
-                        <p>TOV (-)</p>
-                        <p>2PA (-)</p>
                         <p>STL (+)</p>
+                        <p>TOV (-)</p>
+                        <p>DRB (+)</p>
+                        <p>FG% (+)</p>
                       </td>
                       <td>
                         <p>W%</p>
                         <p>L</p>
                         <p>W</p>
                         <p>2P%</p>
-                        <p>PTS</p>
+                        <p>AST</p>
                       </td>
                       <td>
                         <p>W%</p>
                         <p>2P%</p>
                         <p>FG%</p>
                         <p>DRB</p>
-                        <p>PF</p>
+                        <p>AST</p>
                       </td>
                       <td>
-                        <p>FT% (+)</p>
-                        <p>PF (+)</p>
-                        <p>3P% (-)</p>
-                        <p>3P (-)</p>
-                        <p>FTA (-)</p>
+                        <p>STL (+)</p>
+                        <p>PTS (-)</p>
+                        <p>ORB (-)</p>
+                        <p>AST (+)</p>
+                        <p>3PA (+)</p>
                       </td>
                       <td>
                         <p>W% (+)</p>
-                        <p>2PA (-)</p>
-                        <p>DRB (+)</p>
-                        <p>ORB (+)</p>
                         <p>STL (+)</p>
+                        <p>TOV (-)</p>
+                        <p>DRB (+)</p>
+                        <p>FTA (+)</p>
                       </td>
                     </tr>
                   </tbody>
@@ -369,23 +376,23 @@
             </div>
       <!-- Collapsible list  -->
             <p>
-              <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target=".column_names" aria-expanded="false" aria-controls="block1 block2 block3 block4">Column Abbreviations</button>
+              <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target=".column_names" aria-expanded="false" aria-controls="block1 block2 block3 block4">Click here to see performance statistic abbreviations.</button>
             </p>
             <div class="row">
-              <div class="col">
+              <div class="col-md-3">
                 <div class="collapse column_names" id="block1">
                   <div class="card card-body">
                     <p>RK - End of Regular Season Ranking</p>
                     <p>Team - Team Name</p>
                     <p>Year - Season Year</p>
-                    <p>W% - Win percentage</p>
+                    <p>W% - Win Percentage</p>
                     <p>W - Wins</p>
                     <p>L - Losses</p>
                     <p>Conf - Conference/Region (East or West)</p>
                   </div>
                 </div>
               </div>  
-              <div class="col">  
+              <div class="col-md-3">  
                 <div class="collapse column_names" id="block2">
                   <div class="card card-body">
                     <p>MP - Minutes Played</p>
@@ -398,10 +405,10 @@
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-md-3">
                 <div class="collapse column_names" id="block3">
                   <div class="card card-body">
-                    <p>2P - 2 Pointers (or Free Throws)</p>
+                    <p>2P - 2 Pointers</p>
                     <p>2PA - 2 Pointers Attempted</p>
                     <p>2P% - 2 Pointers Percentage</p>
                     <p>FT - Free Throws</p>
@@ -411,7 +418,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-md-3">
                 <div class="collapse column_names" id="block4">
                   <div class="card card-body">
                     <p>DRB - Defensive Rebounds</p>
@@ -431,24 +438,24 @@
         </div>
       </div>
 
-<!-- 2019 -->
+<!-- 2019 Predictions-->
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
-          <h4><b> 2019 Test Data Prediction Explanation</h4></b>
+          <h4><b> 2019 Predictions</h4></b>
             <p>We took our models and predicted the playoff teams for the 2019 season.  Both the West and East models predicted more than eight teams would make the playoffs more often than not.  The East models were better at predicting the top half of the rankings than the West, but the West models predicted exactly 8 playoff teams more than the East.</p>
             <div class="row">                                  
         <!-- West 2019 predictions -->                
               <div class="col-md-6">
-                <h5 class="west">West Conference</h5>
+                <h5 class="west">Western Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col" colspan="2"></th>
+                      <th scope="col" colspan="2"><img src="Images/nba-Western_Conference_logo.png" alt="Western_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
@@ -507,14 +514,14 @@
               </div>
         <!-- East 2019 predictions -->
               <div class="col-md-6">
-                <h5 class="east">East Conference</h5>
+                <h5 class="east">Eastern Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col" colspan="2"></th>
+                      <th scope="col" colspan="2"><img src="Images/nba-Eastern_Conference_logo.png" alt="Eastern_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
@@ -574,12 +581,12 @@
             </div>
         <!-- Collapsible list  -->
             <p>
-              <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target=".teams-collapse" aria-expanded="false" aria-controls="west_teams east_teams">Teams Names descriptions</button>
+              <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target=".teams-collapse2019" aria-expanded="false" aria-controls="west_teams east_teams">Click here to see team name abbreviations.</button>
             </p>
             <div class="row">
-              <div class="col">
-                <div class="collapse teams-collapse" id="west_teams">
-                  <div class="card-header west">West Conference</div>
+              <div class="col-md-6">
+                <div class="collapse teams-collapse2019" id="west_teams">
+                  <div class="card-header west">Western Conference</div>
                   <div class="card card-body">
                     <p>DAL - Dallas Mavericks</p>
                     <p>DEN - Denver Nuggets</p>
@@ -599,9 +606,9 @@
                   </div>
                 </div>
               </div>  
-              <div class="col">  
-                <div class="collapse teams-collapse" id="east_teams">
-                  <div class="card-header east">East Conference</div>
+              <div class="col-md-6">  
+                <div class="collapse teams-collapse2019" id="east_teams">
+                  <div class="card-header east">Eastern Conference</div>
                   <div class="card card-body">
                     <p>ATL - Atlanta Hawks</p>
                     <p>BKN - Brooklyn Nets</p>
@@ -622,10 +629,11 @@
                 </div>
               </div>
               
+            </div>
         </div>
         <div class="col-md-1"> 
-        </div>
-      </div>        
+        </div>  
+      </div>     
 
 <!-- 2020 Predictions -->  
       <div class="row">
@@ -637,14 +645,14 @@
             <div class="row">                                  
         <!-- West 2020 predictions -->                
               <div class="col-md-6">
-                <h5 class="west">West Conference</h5>
+                <h5 class="west">Western Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col" colspan="2"></th>
+                      <th scope="col" colspan="2"><img src="Images/nba-Western_Conference_logo.png" alt="Western_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
@@ -703,14 +711,14 @@
               </div>
         <!-- East 2020 predictions -->
               <div class="col-md-6">
-                <h5 class="east">East Conference</h5>
+                <h5 class="east">Eastern Conference</h5>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col" colspan="2"></th>
+                      <th scope="col" colspan="2"><img src="Images/nba-Eastern_Conference_logo.png" alt="Eastern_logo" style="height:80px"></th>
                       <th scope="col" colspan="2">Logistic</th>
-                      <th scope="col" colspan="2">Random Forests</th>
-                      <th scope="col" colspan="2">Support Vector Machine</th>
+                      <th scope="col" colspan="2">Random Forest</th>
+                      <th scope="col" colspan="2">SVM</th>
                     </tr>
                     <tr>
                       <th scope="col">Rank</th>
@@ -767,6 +775,57 @@
                   </tbody>
                 </table>
               </div>
+            </div>
+        <!-- Collapsible list  -->
+            <p>
+              <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target=".teams-collapse2020" aria-expanded="false" aria-controls="west_teams east_teams">Click here to see team name abbreviations.</button>
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="collapse teams-collapse2020" id="west_teams">
+                  <div class="card-header west">Western Conference</div>
+                  <div class="card card-body">
+                    <p>DAL - Dallas Mavericks</p>
+                    <p>DEN - Denver Nuggets</p>
+                    <p>GSW - Golden State Warriors</p>
+                    <p>HOU - Houston Rockets</p>
+                    <p>LAC - Los Angeles Clippers</p>
+                    <p>LAL - Los Angeles Lakers</p>
+                    <p>MEM - Memphis Grizzlies</p>
+                    <p>MIN - Minnesota Timberwolves</p>
+                    <p>NOP - New Orleans Pelicans</p>
+                    <p>OKC - Oklahoma City Thunder</p>
+                    <p>PHX - Phoenix Suns</p>
+                    <p>POR - Portland Trail Blazers</p>
+                    <p>SAC - Sacramento Kings</p>
+                    <p>SAS - San Antonio Spurs</p>
+                    <p>UTA - Utah Jazz</p>
+                  </div>
+                </div>
+              </div>  
+              <div class="col-md-6">  
+                <div class="collapse teams-collapse2020" id="east_teams">
+                  <div class="card-header east">Eastern Conference</div>
+                  <div class="card card-body">
+                    <p>ATL - Atlanta Hawks</p>
+                    <p>BKN - Brooklyn Nets</p>
+                    <p>BOS - Boston Celtics</p>
+                    <p>CHA - Charlotte Hornets</p>
+                    <p>CHI - Chicago Bulls</p>
+                    <p>CLE - Cleveland Cavaliers</p>
+                    <p>DET - Detroit Pistons</p>
+                    <p>IND - Indiana Pacers</p>
+                    <p>MIA - Miami Heat</p>
+                    <p>MIL - Milwaukee Bucks</p>
+                    <p>NYK - New York Knicks</p>
+                    <p>ORL - Orlando Magic</p>
+                    <p>PHI - Philadelphia 76ers</p>
+                    <p>TOR - Toronto Raptors</p>
+                    <p>WAS - Washington Wizards</p>
+                  </div>
+                </div>
+              </div>
+              
             </div>
         </div>
         <div class="col-md-1"> 
