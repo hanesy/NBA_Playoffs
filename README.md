@@ -1,6 +1,10 @@
 # Predicting the 2020 NBA Playoffs
 [Predicting the 2020 NBA Playoffs Homepage](https://hanesy.github.io/NBA_Playoffs/)
 
+<p align="center">
+  <img src="Images/nba_no_background.png">
+</p>
+
 ## INTRODUCTION
 For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since the 1980 playoffs to base our prediction.
 
@@ -60,11 +64,11 @@ We found that using the scaled and normalized count of wins and losses generally
 ## FEATURE IMPORTANCE
 Game outcomes (whether wins, losses, or w%) is the most important feature of all the models.
 
- *Defensive rebounds (DRB) is an important feature for almost all models, for both conferences.
- *Steals (STL) and turnovers (TOV) are important features for the logistic and SVM models, for both conferences.
- *2-pointers percentage (2P%) and field goals percentage (FG%) are important features for the random forest models, for both conferences.
- *2-pointer attempted (2PA) is an important factor negatively correlated with outcomes for all models in the Eastern conference.
- *Free throws attempted (FTA) is an important factor positively correlated with outcomes with the svm model in the Western conference.
+ * Defensive rebounds (DRB) is an important feature for almost all models, for both conferences.
+ * Steals (STL) and turnovers (TOV) are important features for the logistic and SVM models, for both conferences.
+ * 2-pointers percentage (2P%) and field goals percentage (FG%) are important features for the random forest models, for both conferences.
+ * 2-pointer attempted (2PA) is an important factor negatively correlated with outcomes for all models in the Eastern conference.
+ * Free throws attempted (FTA) is an important factor positively correlated with outcomes with the svm model in the Western conference.
 
 ![featuredimportance](Images/feature_importance.png)
 
@@ -80,9 +84,9 @@ Red indicates false predictions.
 ## 2020 PREDICTIONS
 Given that only four teams had clinched a playoff spot before the season was cancelled, there is no ground truth for this set of predictions. However, we thought it would be interesting to see what could have been.
 
- *The team ranks for 2020 at time of the NBA shutdown is listed under "2020 Partial" column.
- *Western conference models predicted more than 8 teams, but the top 8 predicted by the models were the same.
- *Eastern conference models predicted the same 8 teams would make the playoffs.
+ * The team ranks for 2020 at time of the NBA shutdown is listed under "2020 Partial" column.
+ * Western conference models predicted more than 8 teams, but the top 8 predicted by the models were the same.
+ * Eastern conference models predicted the same 8 teams would make the playoffs.
 
 The teams with higher than .5 probability are listed below in descending order.
 
