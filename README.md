@@ -24,7 +24,7 @@ Zone defense allows defensive players to play particular zoned areas of the cour
 
 
 ## SOURCE DATA
-To build our models, we wanted to be able to pull as much data as possible to optimize machine learning. After reviewing various NBA data sites, we chose [datapage](https://www.basketball-reference.com/).
+To build our models, we wanted to be able to pull as much data as possible to optimize machine learning. After reviewing various NBA data sites, we chose [basketball-reference.com/](https://www.basketball-reference.com/).
 
 Reasoning:
 
@@ -32,7 +32,7 @@ Most robust data tables
 Longest history of data
 High accuracy (spot checked against data on NBA.com and ESPN.com)
 Low level of complexity/Javascript on the website, allowing us to scrape without a web driver (chromedriver)
-To scrape the data we used HTML parsing with Python’s Beautifulsoup to build a JSON table per our specified date-range to go year-by-year (e.g. page-by-page) to scrape and parse the data needed from two separate tables housed on each year’s summary page (example: [basketballpage](https://www.basketball-reference.com/leagues/NBA_2020.html)):
+To scrape the data we used HTML parsing with Python’s Beautifulsoup to build a JSON table per our specified date-range to go year-by-year (e.g. page-by-page) to scrape and parse the data needed from two separate tables housed on each year’s summary page (example: [2020 League Stats](https://www.basketball-reference.com/leagues/NBA_2020.html)):
 
 Conference Standings – Collect ‘conference’, ‘wins’, and ‘losses’
 Team Per Game Stats – Collect all other per-game average statistics
@@ -66,7 +66,7 @@ Game outcomes (whether wins, losses, or w%) is the most important feature of all
  *2-pointer attempted (2PA) is an important factor negatively correlated with outcomes for all models in the Eastern conference.
  *Free throws attempted (FTA) is an important factor positively correlated with outcomes with the svm model in the Western conference.
 
-![featuredimportance](Images/fearture_importance.png)
+![featuredimportance](Images/feature_importance.png)
 
 ## 2019 PREDICTIONS
 The model predictions for the 2019 season showed that the Eastern Conference models were better at predicting the teams more precisely than the Western Conference models. The teams that made it to the playoffs are listed in rank order under the "2019 Actual" column.
@@ -128,6 +128,7 @@ The natural next step would be to make a model that uses regular season and play
 ![statsabreviatons](Images/stats_abrv.png)
 
 **Team Abbreviations**
+
 ![teamabreviatons](Images/team_abrv.png)
 
 ## OUR TEAM
