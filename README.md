@@ -49,11 +49,13 @@ This data was then written into a CSV file for Machine Learning analysis.
 We developed three different types of models, Logistic Regression, Random Forest, and Support Vector Machine (SVM).
 
 **Data Preprocessing**
+
 Each performance statistic of the regular season data was scaled using a quantile transformer by each year (all columns except RK, Team, Year, Games, and Conference) and normalized. This transformed the data so the performance statistic was comparable for each season.
 
 We used two variations of game wins - count of wins and losses versus win rate.
 
 **Training and Testing**
+
 We split the regular season data by Eastern and Western conferences. From the split data, 1980 to 2018 was used to train the model. We tested the trained models against the 2019 season. Finally, we predicted 2020 playoff teams based on the statistics from the incomplete season
 
 ## MODEL SCORES
