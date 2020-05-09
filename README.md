@@ -34,14 +34,16 @@ To build our models, we wanted to be able to pull as much data as possible to op
 
 Reasoning:
 
-Most robust data tables
-Longest history of data
-High accuracy (spot checked against data on NBA.com and ESPN.com)
-Low level of complexity/Javascript on the website, allowing us to scrape without a web driver (chromedriver)
+ * Most robust data tables
+ * Longest history of data
+ * High accuracy (spot checked against data on NBA.com and ESPN.com)
+ * Low level of complexity/Javascript on the website, allowing us to scrape without a web driver (chromedriver)
+
 To scrape the data we used HTML parsing with Python’s Beautifulsoup to build a JSON table per our specified date-range to go year-by-year (e.g. page-by-page) to scrape and parse the data needed from two separate tables housed on each year’s summary page (example: [2020 League Stats](https://www.basketball-reference.com/leagues/NBA_2020.html)):
 
-Conference Standings – Collect ‘conference’, ‘wins’, and ‘losses’
-Team Per Game Stats – Collect all other per-game average statistics
+ * Conference Standings – Collect ‘conference’, ‘wins’, and ‘losses’
+ * Team Per Game Stats – Collect all other per-game average statistics
+ 
 This data was then written into a CSV file for Machine Learning analysis.
 
 
