@@ -139,6 +139,9 @@ The natural next step would be to make a model that uses regular season and play
 
 ## OUR TEAM
 Dagney Cooke - LinkedIn:[daglinked](https://www.linkedin.com/in/dagney-cooke-4119b156/) Github:[daggit](https://github.com/dagneycooke)
+
 Shaymus McTeague - LinkedIn:[shaylinked](https://www.linkedin.com/in/shaymusm/) Github:[shaygit](https://github.com/shaymusmc)
+
 Diana Silva - LinkedIn:[dianalinked](https://www.linkedin.com/in/dianalvesilva/) Github:[dianagit](https://github.com/dialsilv)
+
 Heain Yee - LinkedIn:[heainlinked](https://www.linkedin.com/in/heain-yee-82105818/) Github:[heaingit](https://github.com/hanesy)
