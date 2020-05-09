@@ -113,8 +113,8 @@ We ran numerous tests for previous years showing similar results, with a high ra
 
 If we had more time with these models, there are several more things we’d like to try.
 
- *There is a lot of data we could add to the model, like player info or strength of schedule.
- *We could also narrow down the features used in each model to determine what really is important and what isn’t.
+ * There is a lot of data we could add to the model, like player info or strength of schedule.
+ * We could also narrow down the features used in each model to determine what really is important and what isn’t.
 
 **Continued Testing of Accuracy**
 
