@@ -1,5 +1,5 @@
 # Predicting the 2020 NBA Playoffs
-[homepage](https://hanesy.github.io/NBA_Playoffs/)
+[Predicting the 2020 NBA Playoffs Homepage](https://hanesy.github.io/NBA_Playoffs/)
 
 ## INTRODUCTION
 For our final project, we decided to predict the teams that would have made it do the playoffs in 2020. We used historical data of games statistics since the 1980 playoffs to base our prediction.
