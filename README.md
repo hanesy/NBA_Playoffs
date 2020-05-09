@@ -2,7 +2,7 @@
 [Predicting the 2020 NBA Playoffs Homepage](https://hanesy.github.io/NBA_Playoffs/)
 
 <p align="center">
-  <img src="Images/nba_no_background.png">
+  <img width = 100 src="Images/nba_no_background.png">
 </p>
 
 ## INTRODUCTION
