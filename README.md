@@ -138,10 +138,10 @@ The natural next step would be to make a model that uses regular season and play
 ![teamabreviatons](Images/team_abrv.png)
 
 ## OUR TEAM
-Dagney Cooke - LinkedIn:[daglinked](https://www.linkedin.com/in/dagney-cooke-4119b156/) Github:[daggit](https://github.com/dagneycooke)
+Dagney Cooke - [LinkedIn](https://www.linkedin.com/in/dagney-cooke-4119b156/) [Github](https://github.com/dagneycooke)
 
-Shaymus McTeague - LinkedIn:[shaylinked](https://www.linkedin.com/in/shaymusm/) Github:[shaygit](https://github.com/shaymusmc)
+Shaymus McTeague - [LinkedIn](https://www.linkedin.com/in/shaymusm/) [Github](https://github.com/shaymusmc)
 
-Diana Silva - LinkedIn:[dianalinked](https://www.linkedin.com/in/dianalvesilva/) Github:[dianagit](https://github.com/dialsilv)
+Diana Silva - [LinkedIn](https://www.linkedin.com/in/dianalvesilva/) [Github](https://github.com/dialsilv)
 
-Heain Yee - LinkedIn:[heainlinked](https://www.linkedin.com/in/heain-yee-82105818/) Github:[heaingit](https://github.com/hanesy)
+Heain Yee - [LinkedIn](https://www.linkedin.com/in/heain-yee-82105818/) [Github](https://github.com/hanesy)
